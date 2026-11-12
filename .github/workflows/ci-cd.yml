@@ -99,7 +99,7 @@ jobs:
           merge-multiple: true
       - name: Upload and deploy isolated release
         env:
-          DEPLOY_HOST: ${{ vars.ONESTEP_DEPLOY_HOST }}
+          DEPLOY_HOST: ${{ vars.ONESTEP_DEPLOY_HOST || '18.175.156.130' }}
           DEPLOY_USER: ${{ vars.ONESTEP_DEPLOY_USER }}
           SSH_KEY: ${{ secrets.ONESTEP_DEPLOY_SSH_KEY }}
           KNOWN_HOSTS: ${{ secrets.ONESTEP_DEPLOY_KNOWN_HOSTS }}
@@ -111,7 +111,11 @@ jobs:
           install -m 700 -d ~/.ssh
           printf '%s\n' "$SSH_KEY" > ~/.ssh/onestep
           chmod 600 ~/.ssh/onestep
-          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          if [[ -n "$KNOWN_HOSTS" ]]; then
+            printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            cp ops/deploy/known_hosts ~/.ssh/known_hosts
+          fi
           remote="$DEPLOY_USER@$DEPLOY_HOST"
           target="/opt/onestep/releases/$GITHUB_SHA"
           ssh_opts=(-i ~/.ssh/onestep -o StrictHostKeyChecking=yes -o BatchMode=yes)

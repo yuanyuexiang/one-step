@@ -28,10 +28,10 @@
 
 | 类型 | 名称 | 内容 |
 |---|---|---|
-| Variable | `ONESTEP_DEPLOY_HOST` | 与 Beacon 相同的服务器地址 |
+| Variable（可选） | `ONESTEP_DEPLOY_HOST` | 默认 `18.175.156.130`，与 Beacon 共用服务器 |
 | Variable | `ONESTEP_DEPLOY_USER` | 独立站专用部署用户 |
 | Secret | `ONESTEP_DEPLOY_SSH_KEY` | 独立站专用 CI 私钥 |
-| Secret | `ONESTEP_DEPLOY_KNOWN_HOSTS` | 已核验的 SSH 主机公钥记录 |
+| Secret（可选） | `ONESTEP_DEPLOY_KNOWN_HOSTS` | 覆盖仓库内已保存的服务器公钥 |
 
 ## 流水线与日常发布
 
@@ -57,3 +57,24 @@ actionlint .github/workflows/ci-cd.yml
 ```
 
 上述检查不连接云服务器。服务器初始化、GitHub 实际流水线与首次恢复尚未实测，不代表已经上线。
+
+服务器公钥已从本机既有 `~/.ssh/known_hosts` 复制到 `ops/deploy/known_hosts`，没有重新扫描或自动接受新密钥。主机公钥不是登录私钥，可以版本管理；服务器换机或密钥轮换时须另行核验后更新。GitHub Secret 无法读取明文，因此未复制 Beacon 的 CI 私钥。
+
+## 一次性初始化 Actions 凭据
+
+Beacon 的 CI 私钥绑定强制命令，只能调用 Beacon 网关，不能直接供独立站执行 SSH/SCP。独立站新增初始化工具，先检查 GitHub 登录和目标仓库权限，再创建独立站专用密钥、服务器账号与目录，并仅写入 `yuanyuexiang/one-step` 的两个 Secrets、两个 Variables 和 `production` Environment。
+
+```sh
+gh auth login
+python3 ops/deploy/configure-actions.py --admin-key /absolute/path/to/server-admin.pem
+```
+
+管理密钥仅用于服务器初始化，不上传 GitHub；生成的独立站私钥保存在忽略目录 `secrets/`。新部署账号具有 Docker 权限，相当于主机管理权限；这与 Beacon 的受限发布网关实现不同。脚本不修改 Beacon 文件、账号或网关，不发布网站或导入数据；仅在缺失时生成独立站运行配置和数据库密码。初始化成功后仍需完成上文的 runtime.env、独立站数据库和媒体恢复步骤。脚本不会自动更改既有 Environment 审批规则。
+
+### 2026-11-13 凭据初始化记录
+
+已通过本机 GitHub CLI 为 `one-step` 配置 `ONESTEP_DEPLOY_SSH_KEY`、`ONESTEP_DEPLOY_KNOWN_HOSTS` 及部署主机、账号 Variables，创建 `production` Environment。服务器独立账号 `onestep-deploy` 已实测 SSH、Docker 和 `matrix-network` 访问成功。未修改 Beacon 文件、账号或发布网关。
+
+初始化工具现在会补建独立站 `runtime.env` 和两个随机数据库密码，不覆盖已有配置。数据库密码文件采用部署账号所有、GID 33、0640，以供 WordPress/WP-CLI 读取；不向日志输出密码。AnythingLLM 默认关闭，其镜像占位值启用前必须替换。
+
+`production` Environment 当前没有审批规则；main 推送将按工作流进入自动发布。当前尚未导入独立站数据库及媒体，发布脚本的已安装检查会阻止空站发布。GitHub 实际流水线、首次数据恢复及上线仍未验收；不能据凭据配置成功宣称已上线。
