@@ -37,7 +37,7 @@
 
 [ci-cd.yml](../.github/workflows/ci-cd.yml) 对 PR 执行 Compose 检查、部署脚本检查、PHP 语法检查和隔离数据库询盘测试。完整多语言和媒体回归依赖本地迁移数据，仍需本地运行，CI 不上传客户数据库。
 
-推送 `main` 在检查通过后构建两个 `linux/amd64` 镜像并推送 GHCR，保留 SHA 标签、digest、SBOM 与 provenance。部署 job 使用 `production` Environment；手动运行只有勾选 `deploy` 才发布。未提交或推送的本地修改不会触发部署。
+推送 `master` 在检查通过后构建两个 `linux/amd64` 镜像并推送 GHCR，保留 SHA 标签、digest、SBOM 与 provenance。部署 job 使用 `production` Environment；手动运行只有勾选 `deploy` 才发布。未提交或推送的本地修改不会触发部署。
 
 服务器使用临时 GHCR 登录信息拉取固定 digest；先验证配置、已安装站点并拉取镜像，再获取的发布锁内暂停网站写入、备份 MySQL 和 WordPress 文件。校验备份归档及校验和后启动新版本，检查镜像身份与七种语言的公网 HTTPS，最后启动调度器。发布会短暂停站。
 
@@ -77,4 +77,8 @@ python3 ops/deploy/configure-actions.py --admin-key /absolute/path/to/server-adm
 
 初始化工具现在会补建独立站 `runtime.env` 和两个随机数据库密码，不覆盖已有配置。数据库密码文件采用部署账号所有、GID 33、0640，以供 WordPress/WP-CLI 读取；不向日志输出密码。AnythingLLM 默认关闭，其镜像占位值启用前必须替换。
 
-`production` Environment 当前没有审批规则；main 推送将按工作流进入自动发布。当前尚未导入独立站数据库及媒体，发布脚本的已安装检查会阻止空站发布。GitHub 实际流水线、首次数据恢复及上线仍未验收；不能据凭据配置成功宣称已上线。
+`production` Environment 当前没有审批规则；master 推送将按工作流进入自动发布。当前尚未导入独立站数据库及媒体，发布脚本的已安装检查会阻止空站发布。GitHub 实际流水线、首次数据恢复及上线仍未验收；不能据凭据配置成功宣称已上线。
+
+### 自动触发分支修正
+
+仓库默认分支为 `master`。原工作流误用 `main`，导致提交已推送但没有产生运行记录；现已统一 push、pull_request 和构建／部署条件为 `master`。修复需提交并推送后才在 GitHub 生效。

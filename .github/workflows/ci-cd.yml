@@ -1,13 +1,13 @@
 name: One Step CI and CD
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
     inputs:
       deploy:
-        description: Deploy main to the shared server
+        description: Deploy master to the shared server
         type: boolean
         default: false
 permissions:
@@ -41,7 +41,7 @@ jobs:
         run: ./ops/local.sh down
   images:
     needs: checks
-    if: github.repository == 'yuanyuexiang/one-step' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.repository == 'yuanyuexiang/one-step' && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
@@ -83,7 +83,7 @@ jobs:
           path: '*.image'
   deploy:
     needs: images
-    if: github.repository == 'yuanyuexiang/one-step' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.deploy == true)
+    if: github.repository == 'yuanyuexiang/one-step' && github.ref == 'refs/heads/master' && (github.event_name == 'push' || inputs.deploy == true)
     environment: production
     concurrency:
       group: onestep-deployment
