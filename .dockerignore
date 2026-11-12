@@ -1,0 +1,10 @@
+.git
+.env*
+secrets
+backups
+*.md
+**/.DS_Store
+.venv
+migration
+backups
+.github

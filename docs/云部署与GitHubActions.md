@@ -1,0 +1,59 @@
+# 独立站云部署与 GitHub Actions
+
+## 部署边界
+
+独立站与 Beacon 共用服务器和现有 Traefik，Beacon 项目只作为只读参考。本项目不修改 Beacon 文件、不调用其发布网关、不重建 Traefik。
+
+| 项目 | 独立站配置 |
+|---|---|
+| 域名 | `ai-onestep.com` |
+| Compose project | `onestep` |
+| 外部入口网络 | `matrix-network` |
+| Traefik | `websecure`，证书 resolver `route53` |
+| 服务路由 | `onestep`，内部 WordPress 端口 80 |
+| 服务器目录 | `/opt/onestep/{config,releases,state,backups}` |
+| 数据卷 | `onestep-db-data`、`onestep-wp-data`、`onestep-uploads`、`onestep-anythingllm-data` |
+
+[生产 Compose](../docker-compos.production.yaml) 独立使用，不叠加本地文件，不映射任何宿主机端口。MySQL、调度器和 AI 不接入公共入口网络。AnythingLLM 仍需单独初始化，目前默认不启动。
+
+## 首次准备
+
+以下为待执行步骤，本次未连接服务器或配置 GitHub Secrets：
+
+1. 管理员创建上述目录，以及独立部署用户；目录由该用户管理，配置目录限制访问。部署账号需要 Docker 权限，该权限等同主机高权限，应使用独立密钥，不复用 Beacon 的 CI 密钥。当前脚本是独立 SSH 部署，尚未实现 Beacon 的受限 sudo 网关。
+2. 将 [runtime.env.example](../ops/deploy/runtime.env.example) 配置为 `/opt/onestep/config/runtime.env`。分别创建 `config/secrets/db_password`、`db_root_password`，限制文件权限，不复制本地密码。确认现有 `matrix-network` 和 `route53` 对目标域名可用；DNS 应指向同一服务器。
+3. 将当前 WordPress 数据库、核心配置及 uploads 备份并导入独立站卷，使用正式数据库密钥，校验序列化数据中的域名替换。**镜像不包含数据库或迁移媒体，不能只拉镜像就算迁移完成。** 首次手工启动与恢复应使用生产文件、明确的两个镜像 digest 和 `--project-name onestep`。发布脚本要求已有已安装的站点，拒绝自动发布空安装向导。
+4. GitHub 创建 `production` Environment。首次数据迁移验收前配置 required reviewers，阻止意外自动上线。配置下表变量与密钥；主机指纹人工核验，禁止自动接受未知主机密钥。
+5. 核对主机内存、磁盘和备份空间，再启用流水线。AI 启用前单独评估资源并替换其镜像占位 digest。
+
+| 类型 | 名称 | 内容 |
+|---|---|---|
+| Variable | `ONESTEP_DEPLOY_HOST` | 与 Beacon 相同的服务器地址 |
+| Variable | `ONESTEP_DEPLOY_USER` | 独立站专用部署用户 |
+| Secret | `ONESTEP_DEPLOY_SSH_KEY` | 独立站专用 CI 私钥 |
+| Secret | `ONESTEP_DEPLOY_KNOWN_HOSTS` | 已核验的 SSH 主机公钥记录 |
+
+## 流水线与日常发布
+
+[ci-cd.yml](../.github/workflows/ci-cd.yml) 对 PR 执行 Compose 检查、部署脚本检查、PHP 语法检查和隔离数据库询盘测试。完整多语言和媒体回归依赖本地迁移数据，仍需本地运行，CI 不上传客户数据库。
+
+推送 `main` 在检查通过后构建两个 `linux/amd64` 镜像并推送 GHCR，保留 SHA 标签、digest、SBOM 与 provenance。部署 job 使用 `production` Environment；手动运行只有勾选 `deploy` 才发布。未提交或推送的本地修改不会触发部署。
+
+服务器使用临时 GHCR 登录信息拉取固定 digest；先验证配置、已安装站点并拉取镜像，再获取的发布锁内暂停网站写入、备份 MySQL 和 WordPress 文件。校验备份归档及校验和后启动新版本，检查镜像身份与七种语言的公网 HTTPS，最后启动调度器。发布会短暂停站。
+
+## 失败处理与限制
+
+停止网站之前的检查或拉取失败不会更换业务容器。开始停站后失败会保留 `/opt/onestep/state/pending`，阻止继续覆盖；管理员根据当前容器与备份核实恢复步骤，不能直接删除 pending 重试。`state/current`、`previous` 记录成功版本目录。
+
+当前不自动回滚数据库或插件数据结构；需要确认兼容性后恢复上一版本代码，必要时在维护窗口恢复配套数据库和文件。备份仅覆盖独立站，不触碰 Beacon，默认保留全部备份；异机备份、空间告警、保留策略和恢复演练仍须上线前落实。AI 启用后的存储备份尚未加入发布脚本。
+
+## 本地验证
+
+```sh
+python3 ops/deploy/validate.py
+shellcheck ops/deploy/release.sh
+actionlint .github/workflows/ci-cd.yml
+./ops/local.sh config --quiet
+```
+
+上述检查不连接云服务器。服务器初始化、GitHub 实际流水线与首次恢复尚未实测，不代表已经上线。

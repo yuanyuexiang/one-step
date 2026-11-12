@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+secrets/*
+!secrets/.gitkeep
+backups/
+.DS_Store
+.venv/
+migration/raw/
+migration/media/
+
+migration/videos/

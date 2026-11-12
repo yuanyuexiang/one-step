@@ -1,0 +1,161 @@
+# Standalone onestep stack; shares only the existing Traefik network with Beacon.
+services:
+  db:
+    image: ${MYSQL_IMAGE:?Set MYSQL_IMAGE}
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-onestep}
+      MYSQL_USER: ${DB_USER:-onestep}
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+    secrets:
+    - db_password
+    - db_root_password
+    volumes:
+    - db_data:/var/lib/mysql
+    networks:
+    - backend
+    labels:
+      traefik.enable: 'false'
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - mysqladmin ping -h 127.0.0.1 --silent
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  wordpress:
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME:-onestep}
+      WORDPRESS_DB_USER: ${DB_USER:-onestep}
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
+      SITE_URL: ${SITE_URL:?Set SITE_URL}
+      WORDPRESS_CONFIG_EXTRA: 'define(''WP_HOME'', getenv(''SITE_URL''));
+
+        define(''WP_SITEURL'', getenv(''SITE_URL''));
+
+        define(''DISABLE_WP_CRON'', true);
+
+        define(''DISALLOW_FILE_EDIT'', true);
+
+        define(''DISALLOW_FILE_MODS'', true);
+
+        if (isset($$_SERVER[''HTTP_X_FORWARDED_PROTO'']) && $$_SERVER[''HTTP_X_FORWARDED_PROTO'']
+        === ''https'') { $$_SERVER[''HTTPS''] = ''on''; }
+
+        '
+    secrets:
+    - db_password
+    volumes:
+    - wp_data:/var/www/html
+    - uploads:/var/www/html/wp-content/uploads
+    networks:
+    - backend
+    - proxy
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: matrix-network
+      traefik.http.routers.onestep.rule: Host(`${SITE_HOST:?Set SITE_HOST}`)
+      traefik.http.routers.onestep.entrypoints: websecure
+      traefik.http.routers.onestep.tls: 'true'
+      traefik.http.routers.onestep.service: onestep
+      traefik.http.services.onestep.loadbalancer.server.port: '80'
+      traefik.http.routers.onestep.tls.certresolver: route53
+    healthcheck:
+      test:
+      - CMD
+      - php
+      - -r
+      - 'exit(@fsockopen("127.0.0.1",80) ? 0 : 1);'
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    image: ${ONESTEP_WORDPRESS_IMAGE:?Set immutable image digest}
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  scheduler:
+    restart: unless-stopped
+    user: '33:33'
+    depends_on:
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME:-onestep}
+      WORDPRESS_DB_USER: ${DB_USER:-onestep}
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
+      SITE_URL: ${SITE_URL:?Set SITE_URL}
+    secrets:
+    - db_password
+    volumes:
+    - wp_data:/var/www/html
+    - uploads:/var/www/html/wp-content/uploads
+    networks:
+    - backend
+    labels:
+      traefik.enable: 'false'
+    image: ${ONESTEP_SCHEDULER_IMAGE:?Set immutable image digest}
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+  anythingllm:
+    profiles:
+    - ai
+    image: ${ANYTHINGLLM_IMAGE:?Set ANYTHINGLLM_IMAGE}
+    restart: unless-stopped
+    environment:
+      STORAGE_DIR: /app/server/storage
+    volumes:
+    - anythingllm_data:/app/server/storage
+    networks:
+    - backend
+    labels:
+      traefik.enable: 'false'
+    security_opt:
+    - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+networks:
+  backend: {}
+  proxy:
+    external: true
+    name: matrix-network
+volumes:
+  db_data:
+    name: onestep-db-data
+  wp_data:
+    name: onestep-wp-data
+  uploads:
+    name: onestep-uploads
+  anythingllm_data:
+    name: onestep-anythingllm-data
+secrets:
+  db_password:
+    file: ${ONESTEP_CONFIG_DIR:-/opt/onestep/config}/secrets/db_password
+  db_root_password:
+    file: ${ONESTEP_CONFIG_DIR:-/opt/onestep/config}/secrets/db_root_password
+name: onestep

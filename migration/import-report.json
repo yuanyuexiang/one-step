@@ -1,0 +1,1160 @@
+[
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/81.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-57b9cc0352\/",
+        "post_id": 52,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/1.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-cd6b557608\/",
+        "post_id": 53,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/2.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-25ab99638e\/",
+        "post_id": 54,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/7.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-ac9c7948be\/",
+        "post_id": 55,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/78.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-eaa77a649a\/",
+        "post_id": 56,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/79.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-45513a0470\/",
+        "post_id": 57,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/80.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-8b938a906b\/",
+        "post_id": 58,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/6.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-f2d278d8dc\/",
+        "post_id": 59,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/82.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-b8fd7ffee2\/",
+        "post_id": 60,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/4.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-8f64c2698a\/",
+        "post_id": 61,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/83.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-54603993ba\/",
+        "post_id": 62,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/91.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-d82439af28\/",
+        "post_id": 63,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/92.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-205401efb2\/",
+        "post_id": 64,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/87.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-ad9bd7b7a7\/",
+        "post_id": 65,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/3.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-e28d430bc3\/",
+        "post_id": 66,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/88.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-67edc104c7\/",
+        "post_id": 67,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/89.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-a290a79866\/",
+        "post_id": 68,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/90.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/products\/legacy-70d0d96282\/",
+        "post_id": 69,
+        "language": "zh-hant",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/75.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/?post_type=case_study&p=70",
+        "post_id": 70,
+        "language": "zh-hant",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/74.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/?post_type=case_study&p=71",
+        "post_id": 71,
+        "language": "zh-hant",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/73.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/?post_type=case_study&p=72",
+        "post_id": 72,
+        "language": "zh-hant",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/72.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/?post_type=case_study&p=73",
+        "post_id": 73,
+        "language": "zh-hant",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/71.html",
+        "target": "http:\/\/localhost:8080\/zh-hant\/?post_type=case_study&p=74",
+        "post_id": 74,
+        "language": "zh-hant",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/85.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-46f0e5b7e2\/",
+        "post_id": 75,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/Products_Detail\/1.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-3e69537cbf\/",
+        "post_id": 76,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/Products_Detail\/2.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-2bd5b99651\/",
+        "post_id": 77,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/Products_Detail\/7.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-9feefabb58\/",
+        "post_id": 78,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/78.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-4536ed87ac\/",
+        "post_id": 79,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/79.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-50fd9c275e\/",
+        "post_id": 80,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/80.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-0c629db0bc\/",
+        "post_id": 81,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/Products_Detail\/6.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-412546bfc6\/",
+        "post_id": 82,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/92.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-957d3e3d9b\/",
+        "post_id": 83,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/Products_Detail\/4.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-d461a9df0d\/",
+        "post_id": 84,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/93.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-257094b343\/",
+        "post_id": 85,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/94.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-3b07fbdbdf\/",
+        "post_id": 86,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/101.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-487b64adbe\/",
+        "post_id": 87,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/99.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-e3cd37bfdc\/",
+        "post_id": 88,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/Products_Detail\/3.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-b042c08ad2\/",
+        "post_id": 89,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/100.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-ff9dfde4c4\/",
+        "post_id": 90,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/97.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-98eac2c8ba\/",
+        "post_id": 91,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/98.html",
+        "target": "http:\/\/localhost:8080\/en\/products\/legacy-570cd770bb\/",
+        "post_id": 92,
+        "language": "en",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/75.html",
+        "target": "http:\/\/localhost:8080\/en\/?post_type=case_study&p=93",
+        "post_id": 93,
+        "language": "en",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/74.html",
+        "target": "http:\/\/localhost:8080\/en\/?post_type=case_study&p=94",
+        "post_id": 94,
+        "language": "en",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/73.html",
+        "target": "http:\/\/localhost:8080\/en\/?post_type=case_study&p=95",
+        "post_id": 95,
+        "language": "en",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/72.html",
+        "target": "http:\/\/localhost:8080\/en\/?post_type=case_study&p=96",
+        "post_id": 96,
+        "language": "en",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/uk.xiaodangjiacc.com\/PRODUCTS_details\/71.html",
+        "target": "http:\/\/localhost:8080\/en\/?post_type=case_study&p=97",
+        "post_id": 97,
+        "language": "en",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/81.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-a3444bbcf7\/",
+        "post_id": 98,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/Products_Detail\/1.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-79da224ed8\/",
+        "post_id": 99,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/Products_Detail\/2.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-9f2546ecf9\/",
+        "post_id": 100,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/Products_Detail\/7.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-d243820f20\/",
+        "post_id": 101,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/78.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-5abde510aa\/",
+        "post_id": 102,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/79.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-9d0760da57\/",
+        "post_id": 103,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/80.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-5f822633d9\/",
+        "post_id": 104,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/Products_Detail\/6.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-4e3ee05ecc\/",
+        "post_id": 105,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/82.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-ec3aa7be60\/",
+        "post_id": 106,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/Products_Detail\/4.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-45856b3605\/",
+        "post_id": 107,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/87.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-b41e8dd5b1\/",
+        "post_id": 108,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/88.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-000c792e63\/",
+        "post_id": 109,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/89.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-d77bf938d8\/",
+        "post_id": 110,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/83.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-7bda5a5d71\/",
+        "post_id": 111,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/Products_Detail\/3.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-9a93058c35\/",
+        "post_id": 112,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/84.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-8defac7ae9\/",
+        "post_id": 113,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/85.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-acc90a40d7\/",
+        "post_id": 114,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/86.html",
+        "target": "http:\/\/localhost:8080\/fr\/products\/legacy-20deb778a8\/",
+        "post_id": 115,
+        "language": "fr",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/75.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=116",
+        "post_id": 116,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/74.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=117",
+        "post_id": 117,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/73.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=118",
+        "post_id": 118,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/72.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=119",
+        "post_id": 119,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/71.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=120",
+        "post_id": 120,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/70.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=121",
+        "post_id": 121,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/69.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=122",
+        "post_id": 122,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/68.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=123",
+        "post_id": 123,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/fr.xiaodangjiacc.com\/PRODUCTS_details\/67.html",
+        "target": "http:\/\/localhost:8080\/fr\/?post_type=case_study&p=124",
+        "post_id": 124,
+        "language": "fr",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/85.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/Products_Detail\/1.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/Products_Detail\/2.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/Products_Detail\/7.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/78.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/79.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/80.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/Products_Detail\/6.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/92.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/Products_Detail\/4.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/93.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/94.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/101.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/99.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/Products_Detail\/3.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/100.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/97.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/98.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/75.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/74.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/73.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/72.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/de.xiaodangjiacc.com\/PRODUCTS_details\/71.html",
+        "state": "duplicate-english-source",
+        "target": ""
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/81.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-08fbdbeca0\/",
+        "post_id": 125,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/Products_Detail\/1.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-771aa47ea3\/",
+        "post_id": 126,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/Products_Detail\/2.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-d65bdf606b\/",
+        "post_id": 127,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/Products_Detail\/7.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-1e6c913667\/",
+        "post_id": 128,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/78.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-2f64682b68\/",
+        "post_id": 129,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/79.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-d01d811ae0\/",
+        "post_id": 130,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/80.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-daae7efcc8\/",
+        "post_id": 131,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/Products_Detail\/6.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-f91883262a\/",
+        "post_id": 132,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/82.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-9b03fc5405\/",
+        "post_id": 133,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/Products_Detail\/4.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-ed11d6fce0\/",
+        "post_id": 134,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/83.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-14644eca29\/",
+        "post_id": 135,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/84.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-0af23f88f9\/",
+        "post_id": 136,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/85.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-306578a5d9\/",
+        "post_id": 137,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/86.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-dc12c486f2\/",
+        "post_id": 138,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/Products_Detail\/3.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-7ddc8a4e16\/",
+        "post_id": 139,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/87.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-689a7766da\/",
+        "post_id": 140,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/88.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-183b7d6a9f\/",
+        "post_id": 141,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/89.html",
+        "target": "http:\/\/localhost:8080\/it\/products\/legacy-93afa93241\/",
+        "post_id": 142,
+        "language": "it",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/75.html",
+        "target": "http:\/\/localhost:8080\/it\/?post_type=case_study&p=143",
+        "post_id": 143,
+        "language": "it",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/74.html",
+        "target": "http:\/\/localhost:8080\/it\/?post_type=case_study&p=144",
+        "post_id": 144,
+        "language": "it",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/73.html",
+        "target": "http:\/\/localhost:8080\/it\/?post_type=case_study&p=145",
+        "post_id": 145,
+        "language": "it",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/72.html",
+        "target": "http:\/\/localhost:8080\/it\/?post_type=case_study&p=146",
+        "post_id": 146,
+        "language": "it",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/ita.xiaodangjiacc.com\/PRODUCTS_details\/71.html",
+        "target": "http:\/\/localhost:8080\/it\/?post_type=case_study&p=147",
+        "post_id": 147,
+        "language": "it",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/81.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-66dcae141f\/",
+        "post_id": 148,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/Products_Detail\/1.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-c1ded0ce80\/",
+        "post_id": 149,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/Products_Detail\/2.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-726148128f\/",
+        "post_id": 150,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/Products_Detail\/7.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-27e77d9d1a\/",
+        "post_id": 151,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/78.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-38b847b0a2\/",
+        "post_id": 152,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/79.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-da8d91ca39\/",
+        "post_id": 153,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/80.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-acea798a05\/",
+        "post_id": 154,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/Products_Detail\/6.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-ebdca8ceff\/",
+        "post_id": 155,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/Products_Detail\/4.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-58c606a445\/",
+        "post_id": 156,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/1415271773314899968.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-451c654a97\/",
+        "post_id": 157,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/1415295776641409024.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-b27a3cfe5a\/",
+        "post_id": 158,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/1417563852984442880.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-6d3bb09cb3\/",
+        "post_id": 159,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/1415387387298729984.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-bdc145e8aa\/",
+        "post_id": 160,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/Products_Detail\/3.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-a50ab8daf2\/",
+        "post_id": 161,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/1415393418578911232.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-e414492386\/",
+        "post_id": 162,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/1415702161619312640.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-aa72ebf572\/",
+        "post_id": 163,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/1415742188012326912.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-5bbc2fd040\/",
+        "post_id": 164,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/82.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-d0da3f6546\/",
+        "post_id": 165,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/83.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-f114df7d5a\/",
+        "post_id": 166,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/84.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-8ff56eafc4\/",
+        "post_id": 167,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/85.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-b8e8c907fc\/",
+        "post_id": 168,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/86.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-095441b6ac\/",
+        "post_id": 169,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/87.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-c7ea993e3b\/",
+        "post_id": 170,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/88.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-5cd70dca2b\/",
+        "post_id": 171,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/89.html",
+        "target": "http:\/\/localhost:8080\/es\/products\/legacy-5b0c6d30ec\/",
+        "post_id": 172,
+        "language": "es",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/75.html",
+        "target": "http:\/\/localhost:8080\/es\/?post_type=case_study&p=173",
+        "post_id": 173,
+        "language": "es",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/74.html",
+        "target": "http:\/\/localhost:8080\/es\/?post_type=case_study&p=174",
+        "post_id": 174,
+        "language": "es",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/73.html",
+        "target": "http:\/\/localhost:8080\/es\/?post_type=case_study&p=175",
+        "post_id": 175,
+        "language": "es",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/72.html",
+        "target": "http:\/\/localhost:8080\/es\/?post_type=case_study&p=176",
+        "post_id": 176,
+        "language": "es",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/es.xiaodangjiacc.com\/PRODUCTS_details\/71.html",
+        "target": "http:\/\/localhost:8080\/es\/?post_type=case_study&p=177",
+        "post_id": 177,
+        "language": "es",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/81.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-c06feaa043\/",
+        "post_id": 304,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/1.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-60a9282e7e\/",
+        "post_id": 305,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/2.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-599bf4f69f\/",
+        "post_id": 306,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/7.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-86644a1a47\/",
+        "post_id": 307,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/78.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-07df8c685d\/",
+        "post_id": 308,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/79.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-4b5c5301be\/",
+        "post_id": 309,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/80.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-2042d59b47\/",
+        "post_id": 310,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/6.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-622d213ae8\/",
+        "post_id": 311,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/82.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-dde0c6a299\/",
+        "post_id": 312,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/4.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-e3e8507ca3\/",
+        "post_id": 313,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/83.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-0ee94dc1a0\/",
+        "post_id": 314,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/91.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-a62a895136\/",
+        "post_id": 315,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/92.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-20a59487fb\/",
+        "post_id": 316,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/87.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-b6ef710615\/",
+        "post_id": 317,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/Products_Detail\/3.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-6079ff2dc6\/",
+        "post_id": 318,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/88.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-58ff510c47\/",
+        "post_id": 319,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/89.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-b5548604d5\/",
+        "post_id": 320,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/90.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/products\/legacy-8f8ad95807\/",
+        "post_id": 321,
+        "language": "zh-hans",
+        "state": "local-preview-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/75.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/?post_type=case_study&p=322",
+        "post_id": 322,
+        "language": "zh-hans",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/74.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/?post_type=case_study&p=323",
+        "post_id": 323,
+        "language": "zh-hans",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/73.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/?post_type=case_study&p=324",
+        "post_id": 324,
+        "language": "zh-hans",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/72.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/?post_type=case_study&p=325",
+        "post_id": 325,
+        "language": "zh-hans",
+        "state": "draft-case-review"
+    },
+    {
+        "source": "http:\/\/cn.xiaodangjiacc.com\/PRODUCTS_details\/71.html?translation=zh-hans",
+        "target": "http:\/\/localhost:8080\/zh-hans\/?post_type=case_study&p=326",
+        "post_id": 326,
+        "language": "zh-hans",
+        "state": "draft-case-review"
+    }
+]

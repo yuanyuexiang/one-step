@@ -1,0 +1,103 @@
+services:
+  db:
+    image: ${MYSQL_IMAGE:?Set MYSQL_IMAGE}
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-onestep}
+      MYSQL_USER: ${DB_USER:-onestep}
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+    secrets: [db_password, db_root_password]
+    volumes: [db_data:/var/lib/mysql]
+    networks: [backend]
+    labels:
+      traefik.enable: 'false'
+    healthcheck:
+      test: [CMD-SHELL, 'mysqladmin ping -h 127.0.0.1 --silent']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  wordpress:
+    build:
+      context: .
+      dockerfile: docker/wordpress/Dockerfile
+      args:
+        WORDPRESS_IMAGE: ${WORDPRESS_IMAGE:?Set WORDPRESS_IMAGE}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME:-onestep}
+      WORDPRESS_DB_USER: ${DB_USER:-onestep}
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
+      SITE_URL: ${SITE_URL:?Set SITE_URL}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', getenv('SITE_URL'));
+        define('WP_SITEURL', getenv('SITE_URL'));
+        define('DISABLE_WP_CRON', true);
+        define('DISALLOW_FILE_EDIT', true);
+        define('DISALLOW_FILE_MODS', true);
+        if (isset($$_SERVER['HTTP_X_FORWARDED_PROTO']) && $$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') { $$_SERVER['HTTPS'] = 'on'; }
+    secrets: [db_password]
+    volumes: [wp_data:/var/www/html, uploads:/var/www/html/wp-content/uploads]
+    networks: [backend, proxy]
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: ${TRAEFIK_NETWORK:?Set actual Traefik network}
+      traefik.http.routers.onestep.rule: Host(`${SITE_HOST:?Set SITE_HOST}`)
+      traefik.http.routers.onestep.entrypoints: ${TRAEFIK_HTTPS_ENTRYPOINT:?Set HTTPS entrypoint}
+      traefik.http.routers.onestep.tls: 'true'
+      traefik.http.routers.onestep.service: onestep
+      traefik.http.services.onestep.loadbalancer.server.port: '80'
+    healthcheck:
+      test: [CMD, php, -r, 'exit(@fsockopen("127.0.0.1",80) ? 0 : 1);']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  scheduler:
+    build:
+      context: .
+      dockerfile: docker/scheduler/Dockerfile
+    restart: unless-stopped
+    user: '33:33'
+    depends_on:
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME:-onestep}
+      WORDPRESS_DB_USER: ${DB_USER:-onestep}
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
+      SITE_URL: ${SITE_URL:?Set SITE_URL}
+    secrets: [db_password]
+    volumes: [wp_data:/var/www/html, uploads:/var/www/html/wp-content/uploads]
+    networks: [backend]
+    labels:
+      traefik.enable: 'false'
+  anythingllm:
+    profiles: [ai]
+    image: ${ANYTHINGLLM_IMAGE:?Set ANYTHINGLLM_IMAGE}
+    restart: unless-stopped
+    environment:
+      STORAGE_DIR: /app/server/storage
+    volumes: [anythingllm_data:/app/server/storage]
+    networks: [backend]
+    labels:
+      traefik.enable: 'false'
+networks:
+  backend: {}
+  proxy:
+    external: true
+    name: ${TRAEFIK_NETWORK:?Set actual Traefik network}
+volumes:
+  db_data:
+  wp_data:
+  uploads:
+  anythingllm_data:
+secrets:
+  db_password:
+    file: ./secrets/db_password
+  db_root_password:
+    file: ./secrets/db_root_password

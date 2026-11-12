@@ -1,0 +1,18 @@
+# Local development only: no Traefik, HTTPS, or production DNS required.
+services:
+  wordpress:
+    environment:
+      SITE_URL: http://localhost:8080
+    ports:
+      - '127.0.0.1:8080:80'
+    networks: !override
+      - backend
+    labels:
+      traefik.enable: 'false'
+  anythingllm:
+    ports:
+      - '127.0.0.1:3001:3001'
+networks:
+  proxy:
+    external: false
+    name: onestep-local-unused

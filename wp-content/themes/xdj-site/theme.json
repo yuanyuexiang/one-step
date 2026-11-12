@@ -1,0 +1,1 @@
+{"version":3,"settings":{"layout":{"contentSize":"760px","wideSize":"1200px"},"color":{"palette":[{"slug":"brand","name":"Brand","color":"#a92623"},{"slug":"ink","name":"Ink","color":"#202520"},{"slug":"paper","name":"Paper","color":"#faf8f3"}]}},"styles":{"color":{"background":"var:preset|color|paper","text":"var:preset|color|ink"},"spacing":{"blockGap":"1.5rem"}}}
