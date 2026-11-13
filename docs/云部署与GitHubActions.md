@@ -95,3 +95,9 @@ GitHub Linux runner 会保留文件挂载的宿主机权限。原密码文件为
 导入仅限空数据库，已有数据但没有成功发布记录时停止并要求核对，禁止静默覆盖。失败仍保留 pending；已有成功发布记录的后续更新沿用备份和升级流程，不重新导入。迁移包存放于忽略的 `backups/first-deploy/` 并通过 SSH 传到服务器，不提交 Git、不上传 Actions artifact，包含原网站后台账号数据，应限制访问。不会复制本地 wp-config.php 或本地数据库密钥。
 
 首次部署迁移包现已上传至服务器私有目录，`database.sql`、`uploads.tar.gz`、`languages.tar.gz` 均通过服务器端 SHA256 校验。本地空卷已验证 WordPress 核心初始化和数据库导入；完整恢复环境已验证 115 个已发布产品、七种语言导航及视频页面。云端尚未执行修复后的工作流，当前不能声明站点上线成功。
+
+### DNS 生效后的首发恢复
+
+根域名 A 记录现指向 `18.175.156.130`。检查发现，原 SSH 使用 `bash -s` 从 stdin 读取发布命令，而 Docker 命令也会读取 stdin，导致导入后剩余步骤被吞掉、远端却返回成功。工作流改为先完整读取远程命令再执行，避免共享 stdin；HTTPS 首次校验增加有界重试，覆盖证书 DNS 验证等待时间。
+
+2026-11-13 首次发布已恢复完成：服务器 DNS 解析到 `18.175.156.130`，Traefik 完成根域名证书签发，七种语言入口均通过服务器端 HTTPS 校验；WordPress、MySQL、scheduler 已启动，两个应用镜像与发布 digest 一致，成功版本为 `0e774f4aa269368930f1a7114e62dd6cf9d6c42d`。核对 115 个已发布产品后完成恢复，未重复导入；原 pending 移至 `state/recovered-first-deploy` 留档，`state/current` 记录成功版本。本次未修改 Beacon 或重建 Traefik。原 GitHub 失败记录不会因手工恢复变绿；stdin 修复及首次 HTTPS 等待配置仍需提交推送，才能验证后续完整自动发布。

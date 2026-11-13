@@ -135,7 +135,8 @@ jobs:
           # shellcheck disable=SC2029
           printf '%s' "$REGISTRY_TOKEN" | ssh "${ssh_opts[@]}" "$remote" "umask 077; export DOCKER_CONFIG='$target/.docker'; mkdir -p \"\$DOCKER_CONFIG\"; docker login ghcr.io -u '$REGISTRY_USER' --password-stdin || { rm -rf \"\$DOCKER_CONFIG\"; exit 1; }"
           # shellcheck disable=SC2029
-          ssh "${ssh_opts[@]}" "$remote" "bash -s -- '$target'" <<'REMOTE'
+          # Read the complete SSH payload before Docker commands can consume stdin.
+          ssh "${ssh_opts[@]}" "$remote" "script=\$(cat); bash -c \"\$script\" -- '$target'" <<'REMOTE'
           set -euo pipefail
           umask 077
           release_dir=$1
@@ -201,7 +202,7 @@ jobs:
           actual=$(docker inspect --format '{{.Config.Image}}' "$("${compose[@]}" ps -q wordpress)")
           [[ "$actual" == "$ONESTEP_WORDPRESS_IMAGE" ]]
           for lang in zh-hans zh-hant en fr de it es; do
-            curl --fail --silent --show-error --location --retry 5 --retry-delay 10 --max-time 60 "https://ai-onestep.com/$lang/" -o /dev/null
+            curl --fail --silent --show-error --location --retry 18 --retry-all-errors --retry-delay 10 --connect-timeout 5 --max-time 20 "https://ai-onestep.com/$lang/" -o /dev/null
           done
           "${compose[@]}" up -d --no-build scheduler
           actual=$(docker inspect --format '{{.Config.Image}}' "$("${compose[@]}" ps -q scheduler)")
@@ -214,5 +215,5 @@ jobs:
       - name: Verify public HTTPS
         run: |
           for lang in zh-hans zh-hant en fr de it es; do
-            curl --fail --silent --show-error --location --retry 5 --retry-delay 10 --max-time 60 "https://ai-onestep.com/$lang/" -o /dev/null
+            curl --fail --silent --show-error --location --retry 18 --retry-all-errors --retry-delay 10 --connect-timeout 5 --max-time 20 "https://ai-onestep.com/$lang/" -o /dev/null
           done
