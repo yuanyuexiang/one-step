@@ -54,3 +54,5 @@ python3 ops/deploy/validate.py
 前三项会写入带标记的测试询盘，只用于本地/隔离环境。媒体检查需要本地迁移文件和 `ffmpeg`。CI 从空数据库建立夹具，执行迁移两次并验证翻译关系和页面功能。
 
 推送 `master` 触发 GitHub Actions 检查、构建 GHCR digest 镜像、SSH 备份和发布。生产使用 `docker-compos.production.yaml`、`onestep` 项目和独立卷，只共享 `matrix-network`/Traefik。配置、发布状态与失败恢复见 [云部署与 GitHub Actions](docs/云部署与GitHubActions.md)。任何密钥、`.env.local`、询盘数据和原始抓取文件均不得提交。
+
+性能基线、优化措施、官方报告链接与生产复测见 [PageSpeed 性能测试与优化记录](docs/PageSpeed性能测试与优化记录.md)。WebP 预览通过插件 `optimize-media.php` 显式生成，生产流程会运行；原图保留，不在访客请求中转码。

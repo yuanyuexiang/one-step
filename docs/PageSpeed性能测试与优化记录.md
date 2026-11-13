@@ -43,3 +43,52 @@
 本地检查包括七语全站回归、PHP/JavaScript 语法、Compose 隔离、静态资源缓存响应，以及隔离数据库中的 WebP 生成、调色板 PNG、重复执行、原图不变验证。生产通过现有 Actions 发布，先备份，再生成派生图；不会在访客请求中压图，也不修改 Beacon。
 
 优化后生产复测结果在下方补充。
+
+## 优化后生产复测
+
+已部署应用版本：`163d0bb70cf032057a4caef633d673c749ab9a0b`。[GitHub Actions](https://github.com/yuanyuexiang/one-step/actions/runs/43449278108) 的检查、构建、备份发布与公网验证全部成功。以下为同日优化后第一轮双端复测，各页各设备一次：
+
+| 页面 | 移动性能 | 桌面性能 | 移动 LCP | 桌面 LCP | 移动/桌面 CLS | 无障碍（移动/桌面） |
+|---|---:|---:|---:|---:|---:|---:|
+| 中文首页 | 100 | 100 | 1.801 s | 0.401 s | 0 / 0 | 96 / 96 |
+| 英文首页 | 100 | 100 | 1.829 s | 0.401 s | 0 / 0 | 96 / 96 |
+| 英文折页菜单详情 | 100 | 100 | 1.367 s | 0.336 s | 0 / 0 | 96 / 96 |
+| 合作相册 | 100 | 100 | 0.936 s | 0.441 s | 0 / 0 | 100 / 100 |
+| 视频资料 | 97 | 100 | 2.072 s | 0.419 s | 0 / 0 | 100 / 100 |
+| 联系页 | 100 | 100 | 0.947 s | 0.263 s | 0 / 0 | 96 / 96 |
+
+本轮 TBT 全部为 0 ms；最佳做法全部 100，SEO 仍为 69。视频移动性能 98→97，LCP 1.745→2.072 s，不能声称所有单项都提高；桌面 CLS 0.19→0、总下载量大幅下降是本次明确改善。尚有图片传送及部分文字对比度建议，未宣称所有审计项全部通过。
+
+复测报告：
+
+- [中文首页](https://pagespeed.web.dev/analysis/https-ai-onestep-com-zh-hans/47wb880qsw?form_factor=mobile)
+- [英文首页](https://pagespeed.web.dev/analysis/https-ai-onestep-com-en/2xd0rhiaf2?form_factor=mobile)
+- [英文折页菜单详情](https://pagespeed.web.dev/analysis/https-ai-onestep-com-en-products-legacy-3e69537cbf/bqcwd5x2r4?form_factor=mobile)
+- [合作相册](https://pagespeed.web.dev/analysis/https-ai-onestep-com-zh-hans-cases/tsf8tk8d64?form_factor=mobile)
+- [视频资料](https://pagespeed.web.dev/analysis/https-ai-onestep-com-zh-hans-videos-zh-hans/qmp3tsnss4?form_factor=mobile)
+- [联系页](https://pagespeed.web.dev/analysis/https-ai-onestep-com-zh-hans-contact/t3pqpc5xm3?form_factor=mobile)
+
+### 下载量与缓存
+
+桌面端报告“避免网络负载过大”中的总大小：
+
+| 页面 | 基线 | 优化后 | 降幅 |
+|---|---:|---:|---:|
+| 合作相册 | 31,059 KiB | 381 KiB | 约 98.8% |
+| 视频资料 | 30,697 KiB | 228 KiB | 约 99.3% |
+
+生产另做六页只读验证：视频全部延后加载；语言选择器有独立可访问名称；视频库预留尺寸；抽取的 72 个 WebP 预览地址全部正常并带静态缓存响应；CSS 的 gzip 压缩正常。HTML 未误设为 30 天静态缓存。未向生产提交测试询盘。
+
+### 首页追加复验
+
+中文首页共观察到三组优化后报告，避免只取最高分：
+
+| 样本 | 移动性能 | 移动 LCP | 移动 TBT | 移动 CLS | 桌面性能 |
+|---|---:|---:|---:|---:|---:|
+| 上表首轮 | 100 | 1.801 s | 0 ms | 0 | 100 |
+| [追加 1](https://pagespeed.web.dev/analysis/https-ai-onestep-com-zh-hans/htypnbpnze?form_factor=mobile) | 100 | 1.506 s | 0 ms | 0 | 100 |
+| [追加 2](https://pagespeed.web.dev/analysis/https-ai-onestep-com-zh-hans/ucrzeu2cu0?form_factor=mobile) | 96 | 1.857 s | 6 ms | 0 | 100 |
+
+移动性能范围 96–100，中位数 100；LCP 中位数 1.801 s。不同样本的 Speed Index 有波动，所以不把一次 100 分理解为所有访客、所有网络下恒定满分。其他五页本轮各做一次双端复测，没有将其伪称为三次中位数。
+
+后续应在真实流量积累后跟踪 CrUX/实际访问表现，并在首页结构、图片、插件或客服加载方式发生明显变化后复测。当前无需为分数继续删减业务交互。
