@@ -159,19 +159,43 @@ jobs:
           "${compose[@]}" config --quiet
           docker network inspect matrix-network >/dev/null
           "${compose[@]}" pull db wordpress scheduler
-          # First provisioning installs/restores WordPress separately; do not publish an empty installer.
-          "${compose[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
-          backup_dir="/opt/onestep/backups/$(date -u +%Y%m%dT%H%M%SZ)-${release_dir##*/}"
-          mkdir -p "$backup_dir"
-          printf '%s\n' "$release_dir" > /opt/onestep/state/pending
-          "${compose[@]}" stop scheduler wordpress
-          # Quiesce application writes before backing up database and all WordPress files.
-          # shellcheck disable=SC2016 # Expanded inside the database container.
-          "${compose[@]}" exec -T db sh -c 'MYSQL_PWD="$(cat /run/secrets/db_root_password)" exec mysqldump -uroot --single-transaction --routines --triggers --events --no-tablespaces "$MYSQL_DATABASE"' > "$backup_dir/database.sql"
-          test -s "$backup_dir/database.sql"
-          "${compose[@]}" run --rm --no-deps --entrypoint tar -v "$backup_dir:/backup" wordpress -czf /backup/wordpress.tar.gz -C /var/www/html .
-          tar -tzf "$backup_dir/wordpress.tar.gz" >/dev/null
-          (cd "$backup_dir" && sha256sum database.sql wordpress.tar.gz > SHA256SUMS)
+          if [[ ! -f /opt/onestep/state/current ]]; then
+            # First release restores the prepared site, with its public router disabled.
+            import_dir=/opt/onestep/import
+            test -s "$import_dir/database.sql"
+            test -s "$import_dir/uploads.tar.gz"
+            test -s "$import_dir/languages.tar.gz"
+            (cd "$import_dir" && sha256sum --check SHA256SUMS)
+            printf 'services:\n  wordpress:\n    labels:\n      traefik.enable: "false"\n' > bootstrap.yaml
+            bootstrap=("${compose[@]}" -f "$release_dir/bootstrap.yaml")
+            printf '%s\n' "$release_dir" > /opt/onestep/state/pending
+            "${bootstrap[@]}" up -d --no-build --wait --wait-timeout 180 db wordpress
+            # Refuse to replace any pre-existing database without a verified release record.
+            # shellcheck disable=SC2016
+            tables=$("${bootstrap[@]}" exec -T db sh -c 'MYSQL_PWD="$(cat /run/secrets/db_root_password)" exec mysql -uroot -Nse "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE()" "$MYSQL_DATABASE"')
+            [[ "$tables" == 0 ]] || { echo 'Existing data found; manual reconciliation required'; exit 1; }
+            # shellcheck disable=SC2016
+            "${bootstrap[@]}" exec -T db sh -c 'MYSQL_PWD="$(cat /run/secrets/db_root_password)" exec mysql -uroot "$MYSQL_DATABASE"' < "$import_dir/database.sql"
+            "${bootstrap[@]}" exec -T wordpress tar -xzf - -C /var/www/html/wp-content/uploads < "$import_dir/uploads.tar.gz"
+            "${bootstrap[@]}" exec -T wordpress mkdir -p /var/www/html/wp-content/languages
+            "${bootstrap[@]}" exec -T wordpress tar -xzf - -C /var/www/html/wp-content/languages < "$import_dir/languages.tar.gz"
+            "${bootstrap[@]}" exec -T wordpress chown -R www-data:www-data /var/www/html/wp-content/uploads
+            "${bootstrap[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
+            "${bootstrap[@]}" run --rm --no-deps --entrypoint wp scheduler search-replace http://localhost:8080 https://ai-onestep.com --all-tables-with-prefix --skip-columns=guid --precise
+            "${bootstrap[@]}" run --rm --no-deps --entrypoint wp scheduler rewrite flush
+          else
+            "${compose[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
+            backup_dir="/opt/onestep/backups/$(date -u +%Y%m%dT%H%M%SZ)-${release_dir##*/}"
+            mkdir -p "$backup_dir"
+            printf '%s\n' "$release_dir" > /opt/onestep/state/pending
+            "${compose[@]}" stop scheduler wordpress
+            # shellcheck disable=SC2016
+            "${compose[@]}" exec -T db sh -c 'MYSQL_PWD="$(cat /run/secrets/db_root_password)" exec mysqldump -uroot --single-transaction --routines --triggers --events --no-tablespaces "$MYSQL_DATABASE"' > "$backup_dir/database.sql"
+            test -s "$backup_dir/database.sql"
+            "${compose[@]}" run --rm --no-deps --entrypoint tar -v "$backup_dir:/backup" wordpress -czf /backup/wordpress.tar.gz -C /var/www/html .
+            tar -tzf "$backup_dir/wordpress.tar.gz" >/dev/null
+            (cd "$backup_dir" && sha256sum database.sql wordpress.tar.gz > SHA256SUMS)
+          fi
           "${compose[@]}" up -d --no-build --wait --wait-timeout 180 db wordpress
           "${compose[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
           actual=$(docker inspect --format '{{.Config.Image}}' "$("${compose[@]}" ps -q wordpress)")

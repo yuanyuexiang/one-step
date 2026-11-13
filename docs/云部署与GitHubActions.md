@@ -22,7 +22,7 @@
 
 1. 管理员创建上述目录，以及独立部署用户；目录由该用户管理，配置目录限制访问。部署账号需要 Docker 权限，该权限等同主机高权限，应使用独立密钥，不复用 Beacon 的 CI 密钥。当前脚本是独立 SSH 部署，尚未实现 Beacon 的受限 sudo 网关。
 2. 将 [runtime.env.example](../ops/deploy/runtime.env.example) 配置为 `/opt/onestep/config/runtime.env`。分别创建 `config/secrets/db_password`、`db_root_password`，限制文件权限，不复制本地密码。确认现有 `matrix-network` 和 `route53` 对目标域名可用；DNS 应指向同一服务器。
-3. 将当前 WordPress 数据库、核心配置及 uploads 备份并导入独立站卷，使用正式数据库密钥，校验序列化数据中的域名替换。**镜像不包含数据库或迁移媒体，不能只拉镜像就算迁移完成。** 首次手工启动与恢复应使用生产文件、明确的两个镜像 digest 和 `--project-name onestep`。工作流发布步骤要求已有已安装的站点，拒绝自动发布空安装向导。
+3. 将当前 WordPress 数据库、核心配置及 uploads 备份并导入独立站卷，使用正式数据库密钥，校验序列化数据中的域名替换。**镜像不包含数据库或迁移媒体，不能只拉镜像就算迁移完成。** 首次手工启动与恢复应使用生产文件、明确的两个镜像 digest 和 `--project-name onestep`。首次发布从服务器 `/opt/onestep/import` 中的数据库、媒体和校验清单恢复站点，恢复时禁用公共路由，不发布空安装向导。
 4. GitHub 创建 `production` Environment。首次数据迁移验收前配置 required reviewers，阻止意外自动上线。配置下表变量与密钥；主机指纹人工核验，禁止自动接受未知主机密钥。
 5. 核对主机内存、磁盘和备份空间，再启用流水线。AI 启用前单独评估资源并替换其镜像占位 digest。
 
@@ -76,7 +76,7 @@ python3 ops/deploy/configure-actions.py --admin-key /absolute/path/to/server-adm
 
 初始化工具现在会补建独立站 `runtime.env` 和两个随机数据库密码，不覆盖已有配置。数据库密码文件采用部署账号所有、GID 33、0640，以供 WordPress/WP-CLI 读取；不向日志输出密码。AnythingLLM 默认关闭，其镜像占位值启用前必须替换。
 
-`production` Environment 当前没有审批规则；master 推送将按工作流进入自动发布。当前尚未导入独立站数据库及媒体，工作流发布步骤的已安装检查会阻止空站发布。GitHub 实际流水线、首次数据恢复及上线仍未验收；不能据凭据配置成功宣称已上线。
+`production` Environment 当前没有审批规则；master 推送将按工作流进入自动发布。首次发布必须先准备完整迁移包；没有迁移包时发布会在停站前拒绝继续。GitHub 实际流水线、首次数据恢复及上线仍未验收；不能据凭据配置成功宣称已上线。
 
 ### 自动触发分支修正
 
@@ -87,3 +87,11 @@ python3 ops/deploy/configure-actions.py --admin-key /absolute/path/to/server-adm
 日常 CI 直接执行 `docker compose`，不再调用 `ops/local.sh` 或单独的 `release.sh`。生产 SSH 发布命令集中在工作流中，仍保留备份、互斥锁和失败状态。`configure-actions.py` 仅供一次性初始化账号及凭据，不参与每次发布。
 
 GitHub Linux runner 会保留文件挂载的宿主机权限。原密码文件为 runner 所有、0600，而 WP-CLI 使用 UID 33，导致读取失败。CI 和本地开发将数据库密码文件设为 0644，父目录保持 0700；只向需要它的容器挂载。数据库 root 密码仍为 0600。生产配置维持 GID 33、0640，不改成开发权限。CI 安装改为 `docker compose exec -T scheduler wp core install`，先检查密码可读性，避免 `run` 重建依赖容器。
+
+### 首次发布顺序修正与迁移包
+
+原工作流在空数据卷上直接调用 WP-CLI，尚未启动 WordPress 写入核心文件，导致 `This does not seem to be a WordPress installation`。修复后，无成功发布记录时先校验 `/opt/onestep/import/{database.sql,uploads.tar.gz,languages.tar.gz,SHA256SUMS}`，关闭独立站 Traefik 路由启动 MySQL 和 WordPress，确认数据库没有既有表，再导入正文、翻译关联、媒体和 WordPress 中文语言包，替换本地 URL，刷新路由，然后启用正式服务并验证。
+
+导入仅限空数据库，已有数据但没有成功发布记录时停止并要求核对，禁止静默覆盖。失败仍保留 pending；已有成功发布记录的后续更新沿用备份和升级流程，不重新导入。迁移包存放于忽略的 `backups/first-deploy/` 并通过 SSH 传到服务器，不提交 Git、不上传 Actions artifact，包含原网站后台账号数据，应限制访问。不会复制本地 wp-config.php 或本地数据库密钥。
+
+首次部署迁移包现已上传至服务器私有目录，`database.sql`、`uploads.tar.gz`、`languages.tar.gz` 均通过服务器端 SHA256 校验。本地空卷已验证 WordPress 核心初始化和数据库导入；完整恢复环境已验证 115 个已发布产品、七种语言导航及视频页面。云端尚未执行修复后的工作流，当前不能声明站点上线成功。
