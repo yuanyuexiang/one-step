@@ -1,0 +1,250 @@
+[
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/81.html",
+    "title": "菜單",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-57b9cc0352/",
+    "gallery_count": 8,
+    "gallery_missing_from_rendered_content": 7,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/b1828b95-13e9-40e4-a89e-c5f82ea564c0.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/e96aca98-bfc6-4045-9400-c7359460f5ae.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/09dd8e98-883e-46d0-bf51-8467a4478de0.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/03f370d7-61a2-4b23-b452-79a4b383d89e.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/b4755dd6-c629-42ff-bf38-5ee9654864a1.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/209c2072-4dce-471b-a5a1-613876346413.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/a4d4705b-38d3-42d3-8e90-c310ce0e3fb8.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/1.html",
+    "title": "折頁菜單",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-cd6b557608/",
+    "gallery_count": 6,
+    "gallery_missing_from_rendered_content": 2,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/f8d1e1ab-553f-466d-9ab9-9e802e713dd7.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/51d8b06e-29e0-4341-920f-b9190ebcd0e0.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/2.html",
+    "title": "坐台菜單",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-25ab99638e/",
+    "gallery_count": 10,
+    "gallery_missing_from_rendered_content": 9,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/b1b0854d-463f-4161-b1f0-ddcff8ac42c1.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/448de371-0c1f-4aef-9ce0-75fb492f6d98.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/80e72aa8-6347-459a-a45a-39b4619d535d.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/e96aca98-bfc6-4045-9400-c7359460f5ae.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/09dd8e98-883e-46d0-bf51-8467a4478de0.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/03f370d7-61a2-4b23-b452-79a4b383d89e.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/b4755dd6-c629-42ff-bf38-5ee9654864a1.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/209c2072-4dce-471b-a5a1-613876346413.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/a4d4705b-38d3-42d3-8e90-c310ce0e3fb8.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/7.html",
+    "title": "掛曆",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-ac9c7948be/",
+    "gallery_count": 6,
+    "gallery_missing_from_rendered_content": 5,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/f4974c24-277e-4f5a-93a8-50e0c6fae1c6.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/eddeb065-c368-432d-9212-0fc85bfd8fef.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/0b9a0dee-be91-41bf-9be5-a4064bce6107.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/ddfe8515-4643-48c0-91ca-66d98d1e0619.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/392e0050-0f3a-4c3b-a243-3e45ee8fe97b.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/78.html",
+    "title": "餐墊",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-eaa77a649a/",
+    "gallery_count": 10,
+    "gallery_missing_from_rendered_content": 9,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/ac907ae2-3ac7-4b8f-8760-111bb278b71a.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/eb770907-50f9-4d5d-9185-4b972703a359.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/664b4aa3-b51e-40fb-b3c3-5aeab1774a1c.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/5bebfd44-aead-446e-9682-c111eac0d2e2.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/ce96360e-245f-4c7f-89eb-c5bc88beeb9f.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/c7943f35-91f2-42fb-9d7f-175810c8a066.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/f6fca744-fdac-47fd-98f5-a10d35c55999.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/21beaaf5-19a6-4c4f-a00d-69a600c34abb.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/c66247a6-c5c2-4573-a6ad-5f4a955d56e5.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/79.html",
+    "title": "代金券",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-45513a0470/",
+    "gallery_count": 14,
+    "gallery_missing_from_rendered_content": 13,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/bae2c201-c6a8-490b-a14b-55c5e0a795bd.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/cbab4a75-7b63-4023-9e4a-f9856e4d9734.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/b77db18c-9687-48e6-823f-119010aa9528.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/bd8ae568-d2af-4d49-b421-8a00b88c92a1.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/bef09a28-45d1-4a61-a7b7-fdbc849a417c.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/a009a4d0-5f16-4414-8205-79022d279cb5.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/c2bc1478-84d7-4d63-94c1-9d118631cac9.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/2406ee54-78ba-43f7-bf36-d893e12f1d54.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/50f8f0ed-8ced-4685-ab91-efa800404a02.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/0fc97450-43c7-49dd-8126-6cd753bfb11a.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/6dad5b37-bfd5-4c74-95b6-a9ed74023bf9.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/ff2503bd-6d2b-443a-86e2-7675301cc9c7.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/9e993ea2-2928-4fe4-a141-82848dc34f5c.png"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/80.html",
+    "title": "名片",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-8b938a906b/",
+    "gallery_count": 9,
+    "gallery_missing_from_rendered_content": 8,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/54833376-3589-4b9f-9e25-ad0181549153.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/50ca4d1d-3d08-42de-a452-e7adc5387c80.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/2accbc43-ab4b-4fea-a7e0-61a522a0af39.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/c50910c0-93c7-4871-9982-89bb9b745a38.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/bf0cc8e3-5fc4-4112-ad04-5b06a9c6ed76.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/b7cfa3e6-f882-4c0e-a586-d5f92d55c3da.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/1fa2c674-db87-4e97-a479-9a25dc2651db.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/9be7d9f3-04c1-4e26-819a-1aa2d1f0a92c.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/6.html",
+    "title": "在線點餐網站",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-f2d278d8dc/",
+    "gallery_count": 6,
+    "gallery_missing_from_rendered_content": 5,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/4159d7e3-4a7b-4db4-866b-baf253f5091e.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/a4c23c61-cb2d-4dd4-a30f-8654938fab61.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/3e27b07f-019d-4b98-8d0b-89a04a580392.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/5a255160-9d7b-49f5-a16a-b7e69d913057.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/15282467-c589-414c-8810-f5a9316e0837.png"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/82.html",
+    "title": "PDA點餐平板",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-b8fd7ffee2/",
+    "gallery_count": 1,
+    "gallery_missing_from_rendered_content": 0,
+    "missing_urls": [],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/4.html",
+    "title": "收銀入單電腦",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-8f64c2698a/",
+    "gallery_count": 2,
+    "gallery_missing_from_rendered_content": 1,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/d2ababed-755e-480b-adb9-1b67dc98d1cc.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/83.html",
+    "title": "立式廣告機",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-54603993ba/",
+    "gallery_count": 6,
+    "gallery_missing_from_rendered_content": 5,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/79146abe-9a9c-4a57-a810-73db666a3553.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/3f01d6a5-fd47-4e65-8b5a-a81c7b353c22.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/85932337-d8b7-4411-9cb2-33fd7302d945.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/b5558bf0-dbee-4d52-aa06-d1a2e69b9a30.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/adff9c95-9432-4bef-ba7b-d6173fbaffe7.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/91.html",
+    "title": "監控攝像頭",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-d82439af28/",
+    "gallery_count": 1,
+    "gallery_missing_from_rendered_content": 0,
+    "missing_urls": [],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/92.html",
+    "title": "壁掛式廣告機",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-205401efb2/",
+    "gallery_count": 4,
+    "gallery_missing_from_rendered_content": 3,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/2dc0de80-f51c-44a4-b2fa-1aec18619368.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/fd3bbb1a-e750-494e-a2d6-4d3bcafe1b27.png",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/8d186c17-b42c-4f87-8b47-35f33d7f386c.png"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/87.html",
+    "title": "小型炒菜機",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-ad9bd7b7a7/",
+    "gallery_count": 3,
+    "gallery_missing_from_rendered_content": 2,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/e81831ab-4e6e-4f9f-b432-5c710f760f9a.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/6891de9f-3773-4b01-b2d0-72361525bf15.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/3.html",
+    "title": "炒菜機",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-e28d430bc3/",
+    "gallery_count": 3,
+    "gallery_missing_from_rendered_content": 2,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/70b85463-d481-4203-809a-42f2cb7885f3.jpg",
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/bfd80290-382f-47e2-a2db-f7d39c2cb7f4.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/88.html",
+    "title": "切菜機",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-67edc104c7/",
+    "gallery_count": 2,
+    "gallery_missing_from_rendered_content": 1,
+    "missing_urls": [
+      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024030718395699238/cms/image/4935d3e2-f6ad-45b7-bc2e-b4e853c02d05.jpg"
+    ],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/89.html",
+    "title": "切蔥機",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-a290a79866/",
+    "gallery_count": 1,
+    "gallery_missing_from_rendered_content": 0,
+    "missing_urls": [],
+    "has_gallery_component": false
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/90.html",
+    "title": "切肉機",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-70d0d96282/",
+    "gallery_count": 1,
+    "gallery_missing_from_rendered_content": 0,
+    "missing_urls": [],
+    "has_gallery_component": false
+  }
+]

@@ -1,0 +1,278 @@
+[
+  {
+    "source": "http://cn.xiaodangjiacc.com/",
+    "title": "餐墊-代金券-掛曆-南京小當家文化諮詢有限公司",
+    "state": "redesigned-home-components-missing",
+    "target": "https://ai-onestep.com/zh-hans/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Home11.html",
+    "title": "首頁-南京小當家文化諮詢有限公司",
+    "state": "redesigned-home-components-missing",
+    "target": "https://ai-onestep.com/zh-hans/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/company/11.html",
+    "title": "企業介紹-南京小當家文化諮詢有限公司",
+    "state": "placeholder-about",
+    "target": "https://ai-onestep.com/zh-hans/about/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/company/2672.html",
+    "title": "企業介紹-南京小當家文化諮詢有限公司",
+    "state": "placeholder-about",
+    "target": "https://ai-onestep.com/zh-hans/about/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/company/2671.html",
+    "title": "商业版图-南京小當家文化諮詢有限公司",
+    "state": "placeholder-regions-not-equivalent",
+    "target": "https://ai-onestep.com/zh-hans/markets/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Video.html",
+    "title": "視頻-南京小當家文化諮詢有限公司",
+    "state": "video-files-moved-to-library",
+    "target": "https://ai-onestep.com/zh-hans/videos-zh-hans/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Photo.html",
+    "title": "Photo-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/products_list_1.html",
+    "title": "產品列表-南京小當家文化諮詢有限公司",
+    "state": "flat-catalogue-without-categories",
+    "target": "https://ai-onestep.com/zh-hans/services/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/products_list/2.html",
+    "title": "設計印刷產品-產品中心-南京小當家文化諮詢有限公司",
+    "state": "flat-catalogue-without-categories",
+    "target": "https://ai-onestep.com/zh-hans/services/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/81.html",
+    "title": "菜單-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-57b9cc0352/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/1.html",
+    "title": "折頁菜單-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-cd6b557608/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/2.html",
+    "title": "坐台菜單-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-25ab99638e/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/7.html",
+    "title": "掛曆-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-ac9c7948be/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/78.html",
+    "title": "餐墊-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-eaa77a649a/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/79.html",
+    "title": "代金券-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-45513a0470/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/80.html",
+    "title": "名片-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-8b938a906b/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/products_list/3.html",
+    "title": "智能點餐系統-產品中心-南京小當家文化諮詢有限公司",
+    "state": "flat-catalogue-without-categories",
+    "target": "https://ai-onestep.com/zh-hans/services/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/6.html",
+    "title": "在線點餐網站-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-f2d278d8dc/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/82.html",
+    "title": "PDA點餐平板-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-b8fd7ffee2/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/4.html",
+    "title": "收銀入單電腦-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-8f64c2698a/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/products_list/8.html",
+    "title": "智能管理系統-產品中心-南京小當家文化諮詢有限公司",
+    "state": "flat-catalogue-without-categories",
+    "target": "https://ai-onestep.com/zh-hans/services/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/83.html",
+    "title": "立式廣告機-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-54603993ba/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/91.html",
+    "title": "監控攝像頭-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-d82439af28/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/92.html",
+    "title": "壁掛式廣告機-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-205401efb2/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/products_list/4.html",
+    "title": "智能後廚設備-產品中心-南京小當家文化諮詢有限公司",
+    "state": "flat-catalogue-without-categories",
+    "target": "https://ai-onestep.com/zh-hans/services/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/87.html",
+    "title": "小型炒菜機-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-ad9bd7b7a7/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Products_Detail/3.html",
+    "title": "炒菜機-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-e28d430bc3/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/88.html",
+    "title": "切菜機-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-67edc104c7/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/89.html",
+    "title": "切蔥機-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-a290a79866/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/90.html",
+    "title": "切肉機-南京小當家文化諮詢有限公司",
+    "state": "published-product-without-gallery",
+    "target": "https://ai-onestep.com/zh-hant/products/legacy-70d0d96282/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Case.html",
+    "title": "案例-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/contact.html",
+    "title": "聯系我們-南京小當家文化諮詢有限公司",
+    "state": "form-present-contact-details-missing",
+    "target": "https://ai-onestep.com/zh-hans/contact/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Aftersales.html",
+    "title": "售後-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/search.html",
+    "title": "搜索-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Video_1.html",
+    "title": "Shipin-南京小當家文化諮詢有限公司",
+    "state": "video-files-moved-to-library",
+    "target": "https://ai-onestep.com/zh-hans/videos-zh-hans/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Productdisplay.html",
+    "title": "產品展示-南京小當家文化諮詢有限公司",
+    "state": "flat-catalogue-without-categories",
+    "target": "https://ai-onestep.com/zh-hans/services/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/company/12.html",
+    "title": "商业版图-南京小當家文化諮詢有限公司",
+    "state": "placeholder-regions-not-equivalent",
+    "target": "https://ai-onestep.com/zh-hans/markets/"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/75.html",
+    "title": "Cooperative customer-南京小當家文化諮詢有限公司",
+    "state": "draft-case-only",
+    "target": "https://ai-onestep.com/zh-hant/?post_type=case_study&p=70"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/74.html",
+    "title": "Cooperative customer-南京小當家文化諮詢有限公司",
+    "state": "draft-case-only",
+    "target": "https://ai-onestep.com/zh-hant/?post_type=case_study&p=71"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/73.html",
+    "title": "Cooperative customer-南京小當家文化諮詢有限公司",
+    "state": "draft-case-only",
+    "target": "https://ai-onestep.com/zh-hant/?post_type=case_study&p=72"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/72.html",
+    "title": "Cooperative customer-南京小當家文化諮詢有限公司",
+    "state": "draft-case-only",
+    "target": "https://ai-onestep.com/zh-hant/?post_type=case_study&p=73"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/PRODUCTS_details/71.html",
+    "title": "Cooperative customer-南京小當家文化諮詢有限公司",
+    "state": "draft-case-only",
+    "target": "https://ai-onestep.com/zh-hant/?post_type=case_study&p=74"
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/Case/p-0-36.html",
+    "title": "案例-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/company/7.html",
+    "title": "前臺登入-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/company/6.html",
+    "title": "界面介紹-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  },
+  {
+    "source": "http://cn.xiaodangjiacc.com/search_xq.html?keywords=%E8%8F%9C%E5%96%AE&appIds=all",
+    "title": "搜索_xq-南京小當家文化諮詢有限公司",
+    "state": "no-equivalent-public-page",
+    "target": null
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "url": "http://cn.xiaodangjiacc.com/npublic/libs/css/ceccbootstrap.min.css,global.css?instance=new2023052217233104071&viewType=p&v=1760576744000&siteType=oper",
+    "bytes": 122913,
+    "matches": [
+      {
+        "term": "fadeIn",
+        "excerpt": "anslate3d(0,20px,0)}to{opacity:0;transform:translate3d(0,-2000px,0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeInDown{from{opacity:0;transform:translate3d(0,-100%,0)}to{opacity:1;transform:none}}@keyframes fadeInLeft{from{opacity:0;transform:translate3d(-100%,0,0)}to{opacity:1;tr"
+      },
+      {
+        "term": "fadeIn",
+        "excerpt": "slate3d(0,-2000px,0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeInDown{from{opacity:0;transform:translate3d(0,-100%,0)}to{opacity:1;transform:none}}@keyframes fadeInLeft{from{opacity:0;transform:translate3d(-100%,0,0)}to{opacity:1;transform:none}}@keyframes fadeInRight{from{opaci"
+      },
+      {
+        "term": "animation:",
+        "excerpt": ":50%;top:50%;margin-left:-21px;margin-top:-21px;z-index:10;transform-origin:50%;animation:swiper-preloader-spin 1s infinite linear;box-sizing:border-box;border:4px solid;border-radius:50%;border-top-color:transparent}li,p,ul{margin:0}.swiper-lazy-preloader-white{--swiper-preloader-color:#fff}.swiper"
+      },
+      {
+        "term": "@keyframes",
+        "excerpt": "rogress-bar-stripes{from{background-position:1rem 0}to{background-position:0 0}}@keyframes progress-bar-stripes{from{background-position:1rem 0}to{background-position:0 0}}.close{float:right;color:#000;text-shadow:0 1px 0 #fff;opacity:.5}.close:hover{color:#000;text-decoration:none}.close:not(:disab"
+      },
+      {
+        "term": "@keyframes",
+        "excerpt": "on:rtl;unicode-bidi:plaintext;text-align:right}html[lang=ar] body{direction:rtl}@keyframes bounce{20%,53%,80%,from,to{animation-timing-function:cubic-bezier(.215,.61,.355,1);transform:translate3d(0,0,0)}40%,43%{animation-timing-function:cubic-bezier(.755,.05,.855,.06);transform:translate3d(0,-30px,0"
+      }
+    ]
+  },
+  {
+    "url": "http://cn.xiaodangjiacc.com/css/site.css?instance=new2023052217233104071&viewType=p&v=1760576744000&siteType=oper",
+    "bytes": 6077,
+    "matches": [
+      {
+        "term": "animation:",
+        "excerpt": "ng-top:100%;transform:translateX(-50%) translateY(-50%)}.s_button1:hover:before{animation:style1 .75s;z-index:1}@keyframes style1{0%{background:rgba(0,0,0,.25);transform:translateX(-50%) translateY(-50%) scale(0)}to{background:0 0;transform:translateX(-50%) translateY(-50%) scale(1)}}.s_button4::aft"
+      },
+      {
+        "term": "@keyframes",
+        "excerpt": "(-50%) translateY(-50%)}.s_button1:hover:before{animation:style1 .75s;z-index:1}@keyframes style1{0%{background:rgba(0,0,0,.25);transform:translateX(-50%) translateY(-50%) scale(0)}to{background:0 0;transform:translateX(-50%) translateY(-50%) scale(1)}}.s_button4::after{opacity:1;width:0}.s_button4:"
+      }
+    ]
+  },
+  {
+    "url": "http://cn.xiaodangjiacc.com/css/Home11_bfb85fa20b98392d4cad42100da32b7b.min.css?instance=new2023052217233104071&viewType=p&v=1760576744000&siteType=oper",
+    "bytes": 99654,
+    "matches": [
+      {
+        "term": "move-forever",
+        "excerpt": "ari gap*/min-height:60px;background:none}/* Animation */.parallax>use{animation:move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite}.parallax>use:nth-child(1){animation-delay:-2s;animation-duration:7s}.parallax>use:nth-child(2){animation-delay:-3s;animation-duration:10s}.parallax>use:nth-child("
+      },
+      {
+        "term": "move-forever",
+        "excerpt": "parallax>use:nth-child(4){animation-delay:-5s;animation-duration:20s}@keyframes move-forever{0%{transform:translate3d(-90px, 0, 0)}100%{transform:translate3d(85px, 0, 0)}}/*Shrinking for mobile*/@media (max-width:768px){.waves{height:40px;min-height:40px}}@media screen and (max-width:768px){#c_effec"
+      },
+      {
+        "term": "parallax",
+        "excerpt": "ght:100px;/*Fix for safari gap*/min-height:60px;background:none}/* Animation */.parallax>use{animation:move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite}.parallax>use:nth-child(1){animation-delay:-2s;animation-duration:7s}.parallax>use:nth-child(2){animation-delay:-3s;animation-duration:10s}."
+      },
+      {
+        "term": "parallax",
+        "excerpt": "arallax>use{animation:move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite}.parallax>use:nth-child(1){animation-delay:-2s;animation-duration:7s}.parallax>use:nth-child(2){animation-delay:-3s;animation-duration:10s}.parallax>use:nth-child(3){animation-delay:-4s;animation-duration:13s}.parallax>us"
+      },
+      {
+        "term": "animation-duration",
+        "excerpt": "ezier(.55, .5, .45, .5) infinite}.parallax>use:nth-child(1){animation-delay:-2s;animation-duration:7s}.parallax>use:nth-child(2){animation-delay:-3s;animation-duration:10s}.parallax>use:nth-child(3){animation-delay:-4s;animation-duration:13s}.parallax>use:nth-child(4){animation-delay:-5s;animation-d"
+      },
+      {
+        "term": "animation-duration",
+        "excerpt": "-delay:-2s;animation-duration:7s}.parallax>use:nth-child(2){animation-delay:-3s;animation-duration:10s}.parallax>use:nth-child(3){animation-delay:-4s;animation-duration:13s}.parallax>use:nth-child(4){animation-delay:-5s;animation-duration:20s}@keyframes move-forever{0%{transform:translate3d(-90px, 0"
+      },
+      {
+        "term": "animation:",
+        "excerpt": "ix for safari gap*/min-height:60px;background:none}/* Animation */.parallax>use{animation:move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite}.parallax>use:nth-child(1){animation-delay:-2s;animation-duration:7s}.parallax>use:nth-child(2){animation-delay:-3s;animation-duration:10s}.parallax>use:"
+      },
+      {
+        "term": "@keyframes",
+        "excerpt": "ation:13s}.parallax>use:nth-child(4){animation-delay:-5s;animation-duration:20s}@keyframes move-forever{0%{transform:translate3d(-90px, 0, 0)}100%{transform:translate3d(85px, 0, 0)}}/*Shrinking for mobile*/@media (max-width:768px){.waves{height:40px;min-height:40px}}@media screen and (max-width:768p"
+      }
+    ]
+  },
+  {
+    "url": "http://cn.xiaodangjiacc.com/upload/css/1f3c2dbf846b484da30df5358f4a7b6f.css?instance=undefined&viewType=undefined&v=undefined&siteType=undefined",
+    "bytes": 3815,
+    "matches": [
+      {
+        "term": "animation:",
+        "excerpt": "ing: 2px;\n}\n\n.side1:hover {\n    background:#F6A508;\n}\n\n.side1:hover a img {\n    animation: jitter 0.5s;\n}\n\n.side {\n    height: 50px;\n    position: absolute;\n    transition: all 0.5s;\n}\n\n.side a {\n    display: block;\n    height: 50px;\n    font-size: 0;\n}\n\n.side i,\n.side span {\n    display: inline-blo"
+      }
+    ]
+  },
+  {
+    "url": "http://cn.xiaodangjiacc.com/upload/js/48cf1a6a39604c309b14f732482138bc.js?instance=new2023052217233104071&viewType=p&v=1760576744000&siteType=oper",
+    "bytes": 785,
+    "matches": [
+      {
+        "term": "scrollTop",
+        "excerpt": "$(window).on(\"load scroll\", function () {\r\n    var top = $(document).scrollTop(),\r\n        wHeight = $(window).height();\r\n    if (top > wHeight) {\r\n        $(\".side6\").fadeIn(\"fast\");\r\n        $(\".wyz-top\").fadeIn(\"fast\");\r\n        $(\".wyz\").css({\r\n            \"height\": 50\r\n        });\r\n "
+      },
+      {
+        "term": "scrollTop",
+        "excerpt": "side6\").on(\"click\", function () {\r\n    $(\"html,body\").stop().animate({\r\n        scrollTop: 0\r\n    }, 500);\r\n});\r\n$(\".wyz-top\").on(\"click\", function () {\r\n    $(\"html,body\").stop().animate({\r\n        scrollTop: 0\r\n    }, 500);\r\n});\r\n\r\n$(function () {\r\n    $('#ScrollToTop').click(function () {\r\n      "
+      },
+      {
+        "term": "fadeIn",
+        "excerpt": "   wHeight = $(window).height();\r\n    if (top > wHeight) {\r\n        $(\".side6\").fadeIn(\"fast\");\r\n        $(\".wyz-top\").fadeIn(\"fast\");\r\n        $(\".wyz\").css({\r\n            \"height\": 50\r\n        });\r\n    } else {\r\n        $(\".side6\").hide();\r\n        $(\".wyz-top\").hide();\r\n        $(\".wyz\").removeAt"
+      },
+      {
+        "term": "fadeIn",
+        "excerpt": "f (top > wHeight) {\r\n        $(\".side6\").fadeIn(\"fast\");\r\n        $(\".wyz-top\").fadeIn(\"fast\");\r\n        $(\".wyz\").css({\r\n            \"height\": 50\r\n        });\r\n    } else {\r\n        $(\".side6\").hide();\r\n        $(\".wyz-top\").hide();\r\n        $(\".wyz\").removeAttr(\"style\");\r\n    }\r\n});\r\n$(\".side6\").o"
+      }
+    ]
+  },
+  {
+    "url": "http://cn.xiaodangjiacc.com/upload/js/f7268ea9f3e045598ec40ade1e47ef4e.js",
+    "bytes": 250,
+    "matches": []
+  }
+]

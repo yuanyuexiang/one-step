@@ -1,0 +1,163 @@
+{
+  "checked_at": "2026-11-13T05:12:22.904534+00:00",
+  "pages": [
+    {
+      "requested": "https://ai-onestep.com/zh-hans/",
+      "final_url": "https://ai-onestep.com/zh-hans/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/zh-hans/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 8,
+      "scripts": [],
+      "headings": [
+        "经营一家好餐馆，<br>每一步都有帮手<span>。</span>",
+        "围绕餐馆经营，<br>把事情做好。",
+        "先了解需求，<br>再找到合适的方案。",
+        "语言贴近你，服务看当地。",
+        "下一步，从你的门店开始。"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": false
+    },
+    {
+      "requested": "https://ai-onestep.com/zh-hans/about/",
+      "final_url": "https://ai-onestep.com/zh-hans/about/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/zh-hans/about/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 7,
+      "scripts": [],
+      "headings": [
+        "关于我们"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": false
+    },
+    {
+      "requested": "https://ai-onestep.com/zh-hans/markets/",
+      "final_url": "https://ai-onestep.com/zh-hans/markets/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/zh-hans/markets/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 7,
+      "scripts": [],
+      "headings": [
+        "服务地区"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": false
+    },
+    {
+      "requested": "https://ai-onestep.com/zh-hans/contact/",
+      "final_url": "https://ai-onestep.com/zh-hans/contact/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/zh-hans/contact/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 7,
+      "scripts": [
+        "https://ai-onestep.com/wp-content/plugins/xdj-business/includes/../assets/inquiry.js?ver=0.2.0"
+      ],
+      "headings": [
+        "联系与咨询"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": true
+    },
+    {
+      "requested": "https://ai-onestep.com/de/services-de/",
+      "final_url": "https://ai-onestep.com/de/services-de/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/de/services-de/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 7,
+      "scripts": [],
+      "headings": [
+        "Produkte und Leistungen"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": false
+    },
+    {
+      "requested": "https://ai-onestep.com/en/services/",
+      "final_url": "https://ai-onestep.com/zh-hans/services/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/zh-hans/services/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 7,
+      "scripts": [],
+      "headings": [
+        "产品与服务"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": false
+    },
+    {
+      "requested": "https://ai-onestep.com/en/services-en/",
+      "final_url": "https://ai-onestep.com/en/services-en/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/en/services-en/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 7,
+      "scripts": [],
+      "headings": [
+        "Products &#038; services"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": false
+    },
+    {
+      "requested": "https://ai-onestep.com/zh-hans/products/legacy-60a9282e7e/",
+      "final_url": "https://ai-onestep.com/zh-hans/products/legacy-60a9282e7e/",
+      "status": 200,
+      "robots": [
+        "<meta name='robots' content='noindex, nofollow' />"
+      ],
+      "canonical": [
+        "<link rel=\"canonical\" href=\"https://ai-onestep.com/zh-hans/products/legacy-60a9282e7e/\" />"
+      ],
+      "language_options": 8,
+      "hreflang_links": 6,
+      "scripts": [],
+      "headings": [
+        "折页菜单"
+      ],
+      "local_preview_notice": true,
+      "form_local_notice": false
+    }
+  ]
+}

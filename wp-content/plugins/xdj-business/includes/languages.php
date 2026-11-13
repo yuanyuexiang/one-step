@@ -12,12 +12,12 @@ function xdj_words(){
  'es'=>['Inicio','Productos y servicios','Zonas de servicio','Quiénes somos','Contacto','Un paso adelante para tu restaurante.','Menús, pedidos y equipamiento','Partimos de las necesidades de tu restaurante para encontrar productos y servicios.','Ver productos','Cuéntanos tu proyecto','Catálogo del sitio anterior','Contenido migrado del sitio anterior. Especificaciones y condiciones pendientes de revisión.']];
  return $all[xdj_lang()]??$all['en'];
 }
-function xdj_page_url($slug){$p=get_page_by_path($slug);if($p&&function_exists('pll_get_post')){$id=pll_get_post($p->ID,xdj_lang());if($id)return get_permalink($id);}return home_url('/'.$slug.'/');}
+function xdj_page_url($slug,$language=null){$language=$language?:xdj_lang();$p=get_page_by_path($slug);if($p&&function_exists('pll_get_post')){$id=pll_get_post($p->ID,$language);if($id)return get_permalink($id);}return home_url('/'.$slug.'/');}
 add_filter('pll_get_post_types',function($types){foreach(['product','solution','case_study','market'] as $t)$types[$t]=$t;return $types;});
 add_shortcode('xdj_catalogue',function(){
  $w=xdj_words();$q=new WP_Query(['post_type'=>'product','posts_per_page'=>60,'lang'=>xdj_lang()]);ob_start();echo '<p class="form-note">'.esc_html($w[11]).'</p><div class="catalogue">';
  while($q->have_posts()){$q->the_post();echo '<a class="service-card" href="'.esc_url(get_permalink()).'">';if(has_post_thumbnail())the_post_thumbnail('medium',['loading'=>'lazy']);echo '<h3>'.esc_html(get_the_title()).'</h3><span>↗</span></a>';}
- wp_reset_postdata();echo '</div>';if(!$q->found_posts)echo '<p><a href="'.esc_url(home_url('/en/services/')).'">English catalogue →</a></p>';return ob_get_clean();
+ wp_reset_postdata();echo '</div>';if(!$q->found_posts)echo '<p><a href="'.esc_url(xdj_page_url('services','en')).'">English catalogue →</a></p>';return ob_get_clean();
 });
 add_filter('do_shortcode_tag',function($output,$tag){
  if($tag!=='xdj_inquiry_form')return $output;$lang=xdj_lang();
