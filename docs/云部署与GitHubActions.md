@@ -22,7 +22,7 @@
 
 1. 管理员创建上述目录，以及独立部署用户；目录由该用户管理，配置目录限制访问。部署账号需要 Docker 权限，该权限等同主机高权限，应使用独立密钥，不复用 Beacon 的 CI 密钥。当前脚本是独立 SSH 部署，尚未实现 Beacon 的受限 sudo 网关。
 2. 将 [runtime.env.example](../ops/deploy/runtime.env.example) 配置为 `/opt/onestep/config/runtime.env`。分别创建 `config/secrets/db_password`、`db_root_password`，限制文件权限，不复制本地密码。确认现有 `matrix-network` 和 `route53` 对目标域名可用；DNS 应指向同一服务器。
-3. 将当前 WordPress 数据库、核心配置及 uploads 备份并导入独立站卷，使用正式数据库密钥，校验序列化数据中的域名替换。**镜像不包含数据库或迁移媒体，不能只拉镜像就算迁移完成。** 首次手工启动与恢复应使用生产文件、明确的两个镜像 digest 和 `--project-name onestep`。发布脚本要求已有已安装的站点，拒绝自动发布空安装向导。
+3. 将当前 WordPress 数据库、核心配置及 uploads 备份并导入独立站卷，使用正式数据库密钥，校验序列化数据中的域名替换。**镜像不包含数据库或迁移媒体，不能只拉镜像就算迁移完成。** 首次手工启动与恢复应使用生产文件、明确的两个镜像 digest 和 `--project-name onestep`。工作流发布步骤要求已有已安装的站点，拒绝自动发布空安装向导。
 4. GitHub 创建 `production` Environment。首次数据迁移验收前配置 required reviewers，阻止意外自动上线。配置下表变量与密钥；主机指纹人工核验，禁止自动接受未知主机密钥。
 5. 核对主机内存、磁盘和备份空间，再启用流水线。AI 启用前单独评估资源并替换其镜像占位 digest。
 
@@ -35,7 +35,7 @@
 
 ## 流水线与日常发布
 
-[ci-cd.yml](../.github/workflows/ci-cd.yml) 对 PR 执行 Compose 检查、部署脚本检查、PHP 语法检查和隔离数据库询盘测试。完整多语言和媒体回归依赖本地迁移数据，仍需本地运行，CI 不上传客户数据库。
+[ci-cd.yml](../.github/workflows/ci-cd.yml) 对 PR 执行 Compose 检查、PHP 语法检查和隔离数据库询盘测试。完整多语言和媒体回归依赖本地迁移数据，仍需本地运行，CI 不上传客户数据库。
 
 推送 `master` 在检查通过后构建两个 `linux/amd64` 镜像并推送 GHCR，保留 SHA 标签、digest、SBOM 与 provenance。部署 job 使用 `production` Environment；手动运行只有勾选 `deploy` 才发布。未提交或推送的本地修改不会触发部署。
 
@@ -45,13 +45,12 @@
 
 停止网站之前的检查或拉取失败不会更换业务容器。开始停站后失败会保留 `/opt/onestep/state/pending`，阻止继续覆盖；管理员根据当前容器与备份核实恢复步骤，不能直接删除 pending 重试。`state/current`、`previous` 记录成功版本目录。
 
-当前不自动回滚数据库或插件数据结构；需要确认兼容性后恢复上一版本代码，必要时在维护窗口恢复配套数据库和文件。备份仅覆盖独立站，不触碰 Beacon，默认保留全部备份；异机备份、空间告警、保留策略和恢复演练仍须上线前落实。AI 启用后的存储备份尚未加入发布脚本。
+当前不自动回滚数据库或插件数据结构；需要确认兼容性后恢复上一版本代码，必要时在维护窗口恢复配套数据库和文件。备份仅覆盖独立站，不触碰 Beacon，默认保留全部备份；异机备份、空间告警、保留策略和恢复演练仍须上线前落实。AI 启用后的存储备份尚未加入工作流发布步骤。
 
 ## 本地验证
 
 ```sh
 python3 ops/deploy/validate.py
-shellcheck ops/deploy/release.sh
 actionlint .github/workflows/ci-cd.yml
 ./ops/local.sh config --quiet
 ```
@@ -77,8 +76,14 @@ python3 ops/deploy/configure-actions.py --admin-key /absolute/path/to/server-adm
 
 初始化工具现在会补建独立站 `runtime.env` 和两个随机数据库密码，不覆盖已有配置。数据库密码文件采用部署账号所有、GID 33、0640，以供 WordPress/WP-CLI 读取；不向日志输出密码。AnythingLLM 默认关闭，其镜像占位值启用前必须替换。
 
-`production` Environment 当前没有审批规则；master 推送将按工作流进入自动发布。当前尚未导入独立站数据库及媒体，发布脚本的已安装检查会阻止空站发布。GitHub 实际流水线、首次数据恢复及上线仍未验收；不能据凭据配置成功宣称已上线。
+`production` Environment 当前没有审批规则；master 推送将按工作流进入自动发布。当前尚未导入独立站数据库及媒体，工作流发布步骤的已安装检查会阻止空站发布。GitHub 实际流水线、首次数据恢复及上线仍未验收；不能据凭据配置成功宣称已上线。
 
 ### 自动触发分支修正
 
 仓库默认分支为 `master`。原工作流误用 `main`，导致提交已推送但没有产生运行记录；现已统一 push、pull_request 和构建／部署条件为 `master`。修复需提交并推送后才在 GitHub 生效。
+
+### CI 简化与密码文件权限修正
+
+日常 CI 直接执行 `docker compose`，不再调用 `ops/local.sh` 或单独的 `release.sh`。生产 SSH 发布命令集中在工作流中，仍保留备份、互斥锁和失败状态。`configure-actions.py` 仅供一次性初始化账号及凭据，不参与每次发布。
+
+GitHub Linux runner 会保留文件挂载的宿主机权限。原密码文件为 runner 所有、0600，而 WP-CLI 使用 UID 33，导致读取失败。CI 和本地开发将数据库密码文件设为 0644，父目录保持 0700；只向需要它的容器挂载。数据库 root 密码仍为 0600。生产配置维持 GID 33、0640，不改成开发权限。CI 安装改为 `docker compose exec -T scheduler wp core install`，先检查密码可读性，避免 `run` 重建依赖容器。

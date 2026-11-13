@@ -1,9 +1,10 @@
-import json, uuid, urllib.request, urllib.error
-base='http://localhost:8080/wp-json/xdj/v1/inquiry'
+import json, os, uuid, urllib.request, urllib.error
+origin=os.environ.get('SITE_TEST_URL','http://localhost:8080').rstrip('/')
+base=origin+'/wp-json/xdj/v1/inquiry'
 key=str(uuid.uuid4())
 payload=dict(name='开发验收测试', email='test@example.invalid', phone='', country='GB', service='print', message='自动测试记录，请勿联系。', consent=True)
 def post(body, token):
- request=urllib.request.Request(base,json.dumps(body).encode(),{'Content-Type':'application/json','Idempotency-Key':token,'Origin':'http://localhost:8080'})
+ request=urllib.request.Request(base,json.dumps(body).encode(),{'Content-Type':'application/json','Idempotency-Key':token,'Origin':origin})
  try:
   with urllib.request.urlopen(request) as response:return response.status,json.load(response)
  except urllib.error.HTTPError as response:return response.code,json.load(response)

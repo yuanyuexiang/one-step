@@ -19,26 +19,35 @@ jobs:
   checks:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
+    env:
+      COMPOSE_PROJECT_NAME: onestep-ci
+      COMPOSE_FILE: docker-compos.yaml:docker-compos.local.yaml
+      COMPOSE_ENV_FILES: .env.ci
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with: {persist-credentials: false}
-      - name: Validate and build local stack
+      - name: Prepare isolated CI configuration
         run: |
-          ./ops/local.sh config --quiet
-          python3 ops/deploy/validate.py
-          bash -n ops/deploy/release.sh
-          shellcheck ops/deploy/release.sh
-          ./ops/local.sh up -d --build --wait --wait-timeout 180
-          ./ops/local.sh exec -T wordpress sh -c 'find wp-content/plugins/xdj-business wp-content/themes/xdj-site -name "*.php" -print0 | xargs -0 -n1 php -l'
+          cp .env.example .env.ci
+          install -m 700 -d secrets
+          (umask 077; openssl rand -hex 32 > secrets/db_password; openssl rand -hex 32 > secrets/db_root_password)
+          # UID 33 inside scheduler must read this mounted file; host directory stays private.
+          chmod 644 secrets/db_password
+      - name: Validate and build
+        run: |
+          docker compose config --quiet
+          docker compose up -d --build --wait --wait-timeout 180
+          docker compose exec -T wordpress sh -c 'find wp-content/plugins/xdj-business wp-content/themes/xdj-site -name "*.php" -print0 | xargs -0 -n1 php -l'
       - name: Initialize isolated CI database and test inquiry API
         run: |
-          ./ops/local.sh run --rm --entrypoint wp scheduler core install --url=http://localhost:8080 --title='CI' --admin_user=ci-admin --admin_password="$(openssl rand -hex 24)" --admin_email=ci@example.invalid --skip-email
-          ./ops/local.sh cp ops/seed-local.php scheduler:/tmp/seed-local.php
-          ./ops/local.sh exec -T scheduler wp eval-file /tmp/seed-local.php
+          docker compose exec -T scheduler test -r /run/secrets/db_password
+          docker compose exec -T scheduler wp core install --url=http://localhost:8080 --title='CI' --admin_user=ci-admin --admin_password="$(openssl rand -hex 24)" --admin_email=ci@example.invalid --skip-email
+          docker compose cp ops/seed-local.php scheduler:/tmp/seed-local.php
+          docker compose exec -T scheduler wp eval-file /tmp/seed-local.php
           python3 tests/inquiry-smoke.py
       - name: Stop CI stack
         if: always()
-        run: ./ops/local.sh down
+        run: docker compose down
   images:
     needs: checks
     if: github.repository == 'yuanyuexiang/one-step' && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
@@ -120,12 +129,64 @@ jobs:
           target="/opt/onestep/releases/$GITHUB_SHA"
           ssh_opts=(-i ~/.ssh/onestep -o StrictHostKeyChecking=yes -o BatchMode=yes)
           # shellcheck disable=SC2029 # Validated release path expands locally.
-          ssh "${ssh_opts[@]}" "$remote" "mkdir -p '$target/ops/deploy'"
+          ssh "${ssh_opts[@]}" "$remote" "umask 077; mkdir -p '$target'"
           scp "${ssh_opts[@]}" docker-compos.production.yaml wordpress.image scheduler.image "$remote:$target/"
-          scp "${ssh_opts[@]}" ops/deploy/release.sh "$remote:$target/ops/deploy/"
-          # Registry token is supplied over stdin and temporary Docker credentials are removed.
-          # shellcheck disable=SC2029 # Paths and GitHub actor expand locally; Docker config expands remotely.
-          printf '%s' "$REGISTRY_TOKEN" | ssh "${ssh_opts[@]}" "$remote" "set -eu; export DOCKER_CONFIG=\$(mktemp -d); trap 'rm -rf \"\$DOCKER_CONFIG\"' EXIT; docker login ghcr.io -u '$REGISTRY_USER' --password-stdin; bash '$target/ops/deploy/release.sh'"
+          # Login via stdin; the subsequent remote shell removes temporary credentials.
+          # shellcheck disable=SC2029
+          printf '%s' "$REGISTRY_TOKEN" | ssh "${ssh_opts[@]}" "$remote" "umask 077; export DOCKER_CONFIG='$target/.docker'; mkdir -p \"\$DOCKER_CONFIG\"; docker login ghcr.io -u '$REGISTRY_USER' --password-stdin || { rm -rf \"\$DOCKER_CONFIG\"; exit 1; }"
+          # shellcheck disable=SC2029
+          ssh "${ssh_opts[@]}" "$remote" "bash -s -- '$target'" <<'REMOTE'
+          set -euo pipefail
+          umask 077
+          release_dir=$1
+          export DOCKER_CONFIG="$release_dir/.docker"
+          trap 'rm -rf "$DOCKER_CONFIG"' EXIT
+          [[ "$release_dir" =~ ^/opt/onestep/releases/[0-9a-f]{40}$ ]] || { echo 'Invalid release directory'; exit 1; }
+          exec 9>/opt/onestep/state/deploy.lock
+          flock -n 9 || { echo 'Another onestep deployment is running'; exit 1; }
+          [[ ! -e /opt/onestep/state/pending ]] || { echo 'Resolve previous pending deployment first'; exit 1; }
+          cd "$release_dir"
+          # Input files contain only checked image references, never shell commands.
+          for image in wordpress scheduler; do
+            value=$(cat "$image.image")
+            [[ "$value" =~ ^ghcr\.io/yuanyuexiang/one-step-(wordpress|scheduler)@sha256:[0-9a-f]{64}$ ]] || exit 1
+            [[ "$value" == "ghcr.io/yuanyuexiang/one-step-$image@"* ]] || exit 1
+          done
+          ONESTEP_WORDPRESS_IMAGE=$(cat wordpress.image)
+          ONESTEP_SCHEDULER_IMAGE=$(cat scheduler.image)
+          export ONESTEP_WORDPRESS_IMAGE ONESTEP_SCHEDULER_IMAGE
+          compose=(docker compose --project-name onestep --env-file /opt/onestep/config/runtime.env -f "$release_dir/docker-compos.production.yaml")
+          "${compose[@]}" config --quiet
+          docker network inspect matrix-network >/dev/null
+          "${compose[@]}" pull db wordpress scheduler
+          # First provisioning installs/restores WordPress separately; do not publish an empty installer.
+          "${compose[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
+          backup_dir="/opt/onestep/backups/$(date -u +%Y%m%dT%H%M%SZ)-${release_dir##*/}"
+          mkdir -p "$backup_dir"
+          printf '%s\n' "$release_dir" > /opt/onestep/state/pending
+          "${compose[@]}" stop scheduler wordpress
+          # Quiesce application writes before backing up database and all WordPress files.
+          # shellcheck disable=SC2016 # Expanded inside the database container.
+          "${compose[@]}" exec -T db sh -c 'MYSQL_PWD="$(cat /run/secrets/db_root_password)" exec mysqldump -uroot --single-transaction --routines --triggers --events --no-tablespaces "$MYSQL_DATABASE"' > "$backup_dir/database.sql"
+          test -s "$backup_dir/database.sql"
+          "${compose[@]}" run --rm --no-deps --entrypoint tar -v "$backup_dir:/backup" wordpress -czf /backup/wordpress.tar.gz -C /var/www/html .
+          tar -tzf "$backup_dir/wordpress.tar.gz" >/dev/null
+          (cd "$backup_dir" && sha256sum database.sql wordpress.tar.gz > SHA256SUMS)
+          "${compose[@]}" up -d --no-build --wait --wait-timeout 180 db wordpress
+          "${compose[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
+          actual=$(docker inspect --format '{{.Config.Image}}' "$("${compose[@]}" ps -q wordpress)")
+          [[ "$actual" == "$ONESTEP_WORDPRESS_IMAGE" ]]
+          for lang in zh-hans zh-hant en fr de it es; do
+            curl --fail --silent --show-error --location --retry 5 --retry-delay 10 --max-time 60 "https://ai-onestep.com/$lang/" -o /dev/null
+          done
+          "${compose[@]}" up -d --no-build scheduler
+          actual=$(docker inspect --format '{{.Config.Image}}' "$("${compose[@]}" ps -q scheduler)")
+          [[ "$actual" == "$ONESTEP_SCHEDULER_IMAGE" ]]
+          if [[ -f /opt/onestep/state/current ]]; then cp /opt/onestep/state/current /opt/onestep/state/previous; fi
+          printf '%s\n' "$release_dir" > /opt/onestep/state/current
+          rm /opt/onestep/state/pending
+          printf 'Published %s\n' "${release_dir##*/}"
+          REMOTE
       - name: Verify public HTTPS
         run: |
           for lang in zh-hans zh-hant en fr de it es; do
