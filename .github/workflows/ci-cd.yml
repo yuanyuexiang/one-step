@@ -57,6 +57,8 @@ jobs:
           docker compose cp tests/migration-state.php scheduler:/tmp/migration-state.php
           docker compose exec -T scheduler wp eval-file /tmp/migration-state.php
           python3 tests/complete-site-smoke.py
+          docker compose cp tests/image-variants.php scheduler:/tmp/image-variants.php
+          docker compose exec -T -e ONESTEP_CI=1 scheduler wp eval-file /tmp/image-variants.php
       - name: Stop CI stack
         if: always()
         run: docker compose down
@@ -211,6 +213,7 @@ jobs:
           fi
           "${compose[@]}" up -d --no-build --wait --wait-timeout 180 db wordpress
           "${compose[@]}" run --rm -T --no-deps --entrypoint wp scheduler eval-file /var/www/html/wp-content/plugins/xdj-business/migrate.php < /dev/null
+          "${compose[@]}" run --rm -T --no-deps --entrypoint wp scheduler eval-file /var/www/html/wp-content/plugins/xdj-business/optimize-media.php < /dev/null
           "${compose[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
           actual=$(docker inspect --format '{{.Config.Image}}' "$("${compose[@]}" ps -q wordpress)")
           [[ "$actual" == "$ONESTEP_WORDPRESS_IMAGE" ]]

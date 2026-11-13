@@ -64,10 +64,10 @@ function xdj_render_gallery($images,$name='') {
     ob_start(); ?>
     <div class="product-gallery" data-gallery>
         <a class="gallery-main" href="<?php echo esc_url(xdj_media_url($images[0]['file'])); ?>" data-lightbox>
-            <img src="<?php echo esc_url(xdj_media_url($images[0]['file'])); ?>" alt="<?php echo esc_attr($name); ?>" width="900" height="700" fetchpriority="high"><span><?php echo esc_html(xdj_t('zoom')); ?> ↗</span>
+            <?php echo xdj_image_html($images[0]['file'],$name,1280,['width'=>900,'height'=>700,'fetchpriority'=>'high','loading'=>'eager'],'(max-width: 900px) 90vw, 50vw'); ?><span><?php echo esc_html(xdj_t('zoom')); ?> ↗</span>
         </a>
         <div class="gallery-thumbs" aria-label="<?php echo esc_attr($name); ?>"><?php foreach($images as $i=>$image): ?>
-            <button type="button" data-gallery-index="<?php echo (int)$i; ?>" data-src="<?php echo esc_url(xdj_media_url($image['file'])); ?>" aria-label="<?php echo esc_attr($name.' · '.($i+1)); ?>" aria-pressed="<?php echo $i===0?'true':'false'; ?>"><img src="<?php echo esc_url(xdj_media_url($image['file'])); ?>" alt="" loading="lazy" width="100" height="80"></button>
+            <button type="button" data-gallery-index="<?php echo (int)$i; ?>" data-src="<?php echo esc_url(xdj_media_url($image['file'])); ?>" data-preview="<?php echo esc_url(xdj_image_attributes(xdj_media_url($image['file']))['src']??xdj_media_url($image['file'])); ?>" data-srcset="<?php echo esc_attr(xdj_image_attributes(xdj_media_url($image['file']))['srcset']??''); ?>" aria-label="<?php echo esc_attr($name.' · '.($i+1)); ?>" aria-pressed="<?php echo $i===0?'true':'false'; ?>"><?php echo xdj_image_html($image['file'],'',320,['width'=>100,'height'=>80],'100px'); ?></button>
         <?php endforeach; ?></div>
     </div>
     <?php return ob_get_clean();
@@ -76,7 +76,7 @@ function xdj_image_grid($images,$label) {
     $out='<div class="archive-gallery">';
     foreach($images as $i=>$image) {
         $url=xdj_media_url($image['file']);$caption=$label.' · '.sprintf('%02d',$i+1);
-        $out.='<figure><a href="'.esc_url($url).'" data-lightbox><img src="'.esc_url($url).'" alt="'.esc_attr($caption).'" loading="lazy" width="600" height="450"></a><figcaption>'.esc_html($caption).'</figcaption></figure>';
+        $out.='<figure><a href="'.esc_url($url).'" data-lightbox>'.xdj_image_html($image['file'],$caption,768,['width'=>600,'height'=>450],'(max-width: 600px) 45vw, 33vw').'</a><figcaption>'.esc_html($caption).'</figcaption></figure>';
     }
     return $out.'</div>';
 }

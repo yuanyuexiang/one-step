@@ -18,3 +18,10 @@ Text Domain: xdj-site
 .contact-tools details img{display:block;margin-top:15px;width:180px;height:180px;object-fit:contain}@media(max-width:500px){.contact-tools>a,.contact-tools>details{display:none}}
 .video-dialog{border:0;background:#191611;border-radius:8px;padding:42px 18px 18px;width:min(1000px,95vw)}.video-dialog video{width:100%;max-height:75vh;display:block}.video-dialog [data-dialog-close]{position:absolute;right:10px;top:7px;color:white;background:transparent;border:0;font-size:24px;width:32px;height:32px}.catalogue h3{overflow-wrap:anywhere}@media(max-width:360px){header .header-search{order:5;position:absolute;right:5%;top:73px}.language-switcher select{width:76px}header .brand{min-width:65px}.brand-logo{width:65px}header>.button{padding:10px 8px}header{position:relative;padding-bottom:18px}.header-search form{right:0;top:35px;width:270px}}
 @media(max-width:360px){header{gap:8px}.header-search{position:relative!important;right:auto!important;top:auto!important;order:initial!important}.language-switcher select{width:70px}header>.button{font-size:10px;padding:10px 8px}.header-search>summary{font-size:24px}}
+/* PageSpeed remediation: stable video geometry, readable labels and usable controls. */
+.video-library video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;max-height:none}
+.carousel-controls{gap:6px}.carousel-dots{gap:4px;padding:0 2px}.carousel-dots button,.carousel-dots button[aria-pressed=true]{position:relative;width:26px;height:32px;background:transparent;border-radius:0}
+.carousel-dots button::after{content:'';position:absolute;inset:12px 9px;background:#9b7854;border-radius:50%}
+.carousel-dots button[aria-pressed=true]::after{inset:12px 3px;border-radius:6px;background:var(--red)}
+footer p,footer a:not(.brand),.copyright,.hero-note,.archive-statistics small,.video-library figcaption,.source-note,.service-card small,.service-card span,.breadcrumbs{color:#65574b}
+.cta p{color:#fff4df}.notice span{opacity:1}

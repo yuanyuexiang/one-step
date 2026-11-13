@@ -42,3 +42,5 @@ require_once __DIR__ . '/includes/inquiries.php';
 require_once __DIR__ . '/includes/languages.php';
 require_once __DIR__ . '/includes/content.php';
 require_once __DIR__ . '/includes/discovery.php';
+
+require_once __DIR__ . '/includes/performance.php';

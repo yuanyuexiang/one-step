@@ -8,3 +8,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
+
+# Static assets only; never cache WordPress HTML, admin screens, or enquiry APIs.
+<IfModule mod_headers.c>
+<FilesMatch "\.(?:css|js|png|jpe?g|gif|webp|avif|svg|ico|mp4|woff2?)$">
+Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>

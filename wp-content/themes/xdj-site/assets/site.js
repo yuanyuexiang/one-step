@@ -31,7 +31,9 @@
     document.querySelectorAll('[data-gallery]').forEach(gallery => {
         const main = gallery.querySelector('.gallery-main');
         gallery.querySelectorAll('[data-gallery-index]').forEach(button => button.addEventListener('click', () => {
-            main.href = button.dataset.src; main.querySelector('img').src = button.dataset.src;
+            main.href = button.dataset.src; const preview = main.querySelector('img');
+            preview.srcset = button.dataset.srcset || ''; preview.sizes = '(max-width: 900px) 90vw, 50vw';
+            preview.src = button.dataset.preview || button.dataset.src;
             gallery.querySelectorAll('[data-gallery-index]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
         }));
     });
@@ -55,9 +57,9 @@
     }));
     document.querySelectorAll('.technical-content img, .source-manual img').forEach(img => {
         if (img.closest('a')) return;
-        const a = document.createElement('a'); a.href = img.src; a.dataset.lightbox = '';
+        const a = document.createElement('a'); a.href = img.dataset.originalSrc || img.src; a.dataset.lightbox = '';
         img.replaceWith(a); a.append(img);
-        a.addEventListener('click', event => { if (!imageDialog?.showModal) return; event.preventDefault(); imageSet = [{src:img.src,alt:img.alt}]; openImage(0); });
+        a.addEventListener('click', event => { if (!imageDialog?.showModal) return; event.preventDefault(); imageSet = [{src:a.href,alt:img.alt}]; openImage(0); });
     });
     imageDialog?.querySelector('[data-image-prev]').addEventListener('click', () => openImage(imageIndex - 1));
     imageDialog?.querySelector('[data-image-next]').addEventListener('click', () => openImage(imageIndex + 1));
