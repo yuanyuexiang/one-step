@@ -1,6 +1,8 @@
 # PageSpeed 性能测试与优化记录
 
-测试日期：2026-11-13（北京时间）。目标：生产站 https://ai-onestep.com 。官方 PageSpeed Insights 网页，Lighthouse 13.6.0；移动端模拟 Moto G Power、低速 4G。无登录状态，不提交表单。
+测试日期：2026-11-13（北京时间）。
+
+**后续变更：** 本文测试完成后，用户已明确要求开放收录，生产站 `blog_public=1` 已生效并通过线上检查。下文 SEO 69 分和 `noindex` 描述属于测试当时的历史状态，不代表当前仍禁止收录。目标：生产站 https://ai-onestep.com 。官方 PageSpeed Insights 网页，Lighthouse 13.6.0；移动端模拟 Moto G Power、低速 4G。无登录状态，不提交表单。
 
 免密钥 PageSpeed API 返回 HTTP 429（配额为 0），因此改用官方网页实测。以下是实际报告，不是本地 Lighthouse 分数，也不是预估分数。全部报告目前没有 CrUX 真实用户数据，不能据此声称真实用户 Core Web Vitals 已通过。
 
