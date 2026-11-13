@@ -22,11 +22,9 @@ for r in products:
  with urllib.request.urlopen(r['target'],timeout=15) as response:assert response.status==200,r
 print('product pages OK',len(products))
 
-# A fallback link must preserve the requested language after redirects.
+# German catalogue must now contain localized products rather than a fallback-only page.
 with urllib.request.urlopen(base+'/de/services-de/',timeout=15) as response:
  body=response.read().decode()
- fallback=re.search(r'href="([^"]+)"[^>]*>English catalogue',body).group(1)
-with urllib.request.urlopen(fallback,timeout=15) as response:
- assert '/en/' in response.url,response.url
- assert 'Products &amp; services' in response.read().decode()
-print('German catalogue fallback resolves to English')
+ assert len(re.findall(r'class="service-card"',body))==18
+ assert 'English catalogue' not in body
+print('German catalogue contains 18 localized products')

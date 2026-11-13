@@ -20,5 +20,5 @@ for video in json.load(open('migration/video-report.json')):
  print('Video decode + HTTP range OK:',name,flush=True)
 for lang in ['zh-hans','zh-hant','en','fr','de','it','es']:
  with urllib.request.urlopen(base+'/'+lang+'/videos-'+lang+'/',timeout=15) as r:
-  body=r.read().decode();assert body.count('<video ')==3,(lang,body.count('<video '))
+  body=r.read().decode().split('</main>',1)[0];assert body.count('<video ')==3,(lang,body.count('<video '))
 print('Seven language video pages verified',flush=True)

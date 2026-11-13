@@ -51,3 +51,7 @@ Never commit `.env.local`, secrets, customer inquiries, or raw browser archives.
 ## Shared Server Deployment
 
 Beacon is a read-only reference. Modify only this repository. Production uses `docker-compos.production.yaml`, project `onestep`, and the existing `matrix-network`/Traefik. See `docs/云部署与GitHubActions.md`; never invoke Beacon's deployment gateway or modify its stack.
+
+## Content Migration
+
+Run the versioned plugin `migrate.php` explicitly with WP-CLI after backups. Never seed CI fixtures into a real site (`ONESTEP_CI=1` is required). `tests/complete-site-smoke.py` writes an invalid-domain test enquiry; `tests/migration-state.php` checks gallery and translation relationships. Preserve archive attribution; do not publish default device passwords or turn anonymous partner images into verified case studies. Model/SMTP credentials are absent; retain functional local retrieval and database enquiries.

@@ -45,6 +45,18 @@ jobs:
           docker compose cp ops/seed-local.php scheduler:/tmp/seed-local.php
           docker compose exec -T scheduler wp eval-file /tmp/seed-local.php
           python3 tests/inquiry-smoke.py
+          docker compose exec -T scheduler wp plugin activate polylang
+          docker compose cp ops/migration/languages.php scheduler:/tmp/languages.php
+          docker compose exec -T scheduler wp eval-file /tmp/languages.php
+          docker compose cp ops/migration/site-pages.php scheduler:/tmp/site-pages.php
+          docker compose exec -T scheduler wp eval-file /tmp/site-pages.php
+          docker compose cp tests/seed-migration.php scheduler:/tmp/seed-migration.php
+          docker compose exec -T -e ONESTEP_CI=1 scheduler wp eval-file /tmp/seed-migration.php
+          docker compose exec -T scheduler wp eval-file /var/www/html/wp-content/plugins/xdj-business/migrate.php
+          docker compose exec -T scheduler wp eval-file /var/www/html/wp-content/plugins/xdj-business/migrate.php
+          docker compose cp tests/migration-state.php scheduler:/tmp/migration-state.php
+          docker compose exec -T scheduler wp eval-file /tmp/migration-state.php
+          python3 tests/complete-site-smoke.py
       - name: Stop CI stack
         if: always()
         run: docker compose down
@@ -198,6 +210,7 @@ jobs:
             (cd "$backup_dir" && sha256sum database.sql wordpress.tar.gz > SHA256SUMS)
           fi
           "${compose[@]}" up -d --no-build --wait --wait-timeout 180 db wordpress
+          "${compose[@]}" run --rm -T --no-deps --entrypoint wp scheduler eval-file /var/www/html/wp-content/plugins/xdj-business/migrate.php < /dev/null
           "${compose[@]}" run --rm --no-deps --entrypoint wp scheduler core is-installed
           actual=$(docker inspect --format '{{.Config.Image}}' "$("${compose[@]}" ps -q wordpress)")
           [[ "$actual" == "$ONESTEP_WORDPRESS_IMAGE" ]]

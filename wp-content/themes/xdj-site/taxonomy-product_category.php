@@ -1,0 +1,1 @@
+<?php get_header();$term=get_queried_object();$key=preg_replace('/-(zh-hans|zh-hant|en|fr|de|it|es)$/','',$term->slug);?><main id="main" class="page-content section"><div class="eyebrow">ONE STEP GROUP</div><h1><?php echo esc_html($term->name); ?></h1><?php echo xdj_catalogue_markup($key); ?></main><?php get_footer(); ?>

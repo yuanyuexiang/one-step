@@ -1,6 +1,6 @@
 <?php
 if(!defined('ABSPATH'))exit;
-function xdj_lang(){return function_exists('pll_current_language')?(pll_current_language('slug')?:'zh-hans'):'zh-hans';}
+function xdj_lang(){if(isset($GLOBALS['xdj_render_language']))return $GLOBALS['xdj_render_language'];return function_exists('pll_current_language')?(pll_current_language('slug')?:'zh-hans'):'zh-hans';}
 function xdj_words(){
  $all=[
  'zh-hans'=>['首页','产品与服务','服务地区','关于我们','联系与咨询','为海外中餐馆，走好每一步。','菜单、点餐与门店设备服务','从门店的实际需求开始，了解产品、交付和支持。','探索产品','咨询需求','旧站产品目录','以下内容来自旧站，规格与服务条件待审核确认。'],
@@ -36,3 +36,7 @@ add_shortcode('xdj_video_library',function(){return xdj_video_markup(get_option(
 add_filter('the_content',function($content){if(is_singular('product')&&in_the_loop()&&is_main_query()){$ids=get_post_meta(get_the_ID(),'_legacy_videos',true);if($ids)$content.=xdj_video_markup($ids);}return $content;});
 function xdj_video_page_url(){ $pages=get_posts(['post_type'=>'page','meta_key'=>'_xdj_page_key','meta_value'=>'videos','lang'=>xdj_lang(),'numberposts'=>1]);return $pages?get_permalink($pages[0]->ID):''; }
 add_shortcode('xdj_intro_video',function(){ $p=get_posts(['post_type'=>'attachment','meta_key'=>'_legacy_video','meta_value'=>'b943eeb0-1693-47e1-83fd-fb175a6be7cb.mp4','lang'=>'','numberposts'=>1]);return $p?xdj_video_markup([$p[0]->ID]):''; });
+add_filter('do_shortcode_tag',function($output,$tag){
+    if($tag!=='xdj_inquiry_form'||xdj_lang()!=='zh-hant')return $output;
+    return strtr($output,['你的称呼'=>'你的稱呼','门店所在国家'=>'門店所在國家','请选择'=>'請選擇','电子邮箱'=>'電子信箱','联系电话'=>'聯絡電話','邮箱与电话至少填写一项。'=>'信箱與電話至少填寫一項。','感兴趣的服务'=>'感興趣的服務','菜单设计与印刷'=>'菜單設計與印刷','点餐与收银'=>'點餐與收銀','门店与后厨设备'=>'門店與後廚設備','其他咨询'=>'其他諮詢','说说你的需求'=>'說說你的需求','例如：门店所在城市、需要的产品、数量和期望安排。'=>'例如：門店所在城市、需要的產品、數量和期望安排。','我同意将以上信息用于处理本次咨询及联系跟进。'=>'我同意將以上資訊用於處理本次諮詢及聯絡跟進。','提交需求'=>'提交需求','英国'=>'英國','法国'=>'法國','德国'=>'德國','意大利'=>'義大利','中国'=>'中國','其他国家'=>'其他國家']);
+},11,2);

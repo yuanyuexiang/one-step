@@ -10,7 +10,7 @@ add_action('init', function () {
     $types = [
         'product' => ['Products', 'products'],
         'solution' => ['Solutions', 'solutions'],
-        'case_study' => ['Case Studies', 'cases'],
+        'case_study' => ['Case Studies', 'case-studies'],
         'market' => ['Service Markets', 'service-region'],
     ];
     foreach ($types as $type => [$label, $slug]) {
@@ -19,7 +19,7 @@ add_action('init', function () {
             'public' => true,
             'show_in_rest' => true,
             // /markets/ belongs to the translated landing page.
-            'has_archive' => $type !== 'market',
+            'has_archive' => !in_array($type, ['market','case_study'], true),
             'rewrite' => ['slug' => $slug],
             'supports' => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions'],
         ]);
@@ -40,3 +40,5 @@ add_action('init', function () {
 }, 99);
 require_once __DIR__ . '/includes/inquiries.php';
 require_once __DIR__ . '/includes/languages.php';
+require_once __DIR__ . '/includes/content.php';
+require_once __DIR__ . '/includes/discovery.php';
