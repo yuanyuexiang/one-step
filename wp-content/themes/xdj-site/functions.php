@@ -1,5 +1,6 @@
 <?php
 if (!defined('ABSPATH')) exit;
+require_once __DIR__.'/design.php';
 add_action('after_setup_theme', function(){add_theme_support('title-tag');add_theme_support('post-thumbnails');register_nav_menus(['primary'=>'主导航']);});
 add_action('wp_enqueue_scripts',function(){wp_enqueue_style('onestep',get_stylesheet_uri(),[],filemtime(get_template_directory().'/style.css'));});
 
@@ -26,4 +27,8 @@ add_action('do_faviconico', function () {
     header('Cache-Control: public, max-age=86400');
     readfile($path);
     exit;
+});
+
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('onestep-design', get_theme_file_uri('assets/design.css'), ['onestep'], filemtime(get_theme_file_path('assets/design.css')));
 });

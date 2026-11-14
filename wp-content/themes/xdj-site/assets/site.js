@@ -1,18 +1,38 @@
 (() => {
     'use strict';
+    const menuToggle = document.querySelector('.nav-toggle');
+    const siteHeader = menuToggle?.closest('header');
+    if (menuToggle && siteHeader) {
+        document.documentElement.classList.add('nav-ready');
+        const closeMenu = () => {
+            siteHeader.removeAttribute('data-nav-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        };
+        menuToggle.addEventListener('click', () => {
+            const open = menuToggle.getAttribute('aria-expanded') !== 'true';
+            siteHeader.toggleAttribute('data-nav-open', open);
+            menuToggle.setAttribute('aria-expanded', String(open));
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+                closeMenu(); menuToggle.focus();
+            }
+        });
+        window.matchMedia('(max-width: 600px)').addEventListener('change', closeMenu);
+    }
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     document.querySelectorAll('[data-carousel]').forEach(carousel => {
         const slides = [...carousel.querySelectorAll('[data-slide]')];
         const dots = [...carousel.querySelectorAll('[data-dot]')];
         const pauseButton = carousel.querySelector('[data-pause]');
-        let index = 0, paused = reduce.matches, timer;
+        let index = 0, paused = reduce.matches || carousel.hasAttribute('data-manual'), timer;
         function show(next) {
             index = (next + slides.length) % slides.length;
             slides.forEach((slide, i) => { slide.hidden = i !== index; });
             dots.forEach((dot, i) => dot.setAttribute('aria-pressed', String(i === index)));
         }
         function stop() { clearInterval(timer); }
-        function start() { stop(); if (!paused && !document.hidden && !reduce.matches && !carousel.matches(':hover') && !carousel.matches(':focus-within')) timer = setInterval(() => show(index + 1), 4000); }
+        function start() { stop(); if (!paused && !document.hidden && !reduce.matches && !carousel.matches(':hover') && !carousel.matches(':focus-within') && !carousel.closest('details:not([open])')) timer = setInterval(() => show(index + 1), 4000); }
         function label() { pauseButton.textContent = paused ? '▶' : 'Ⅱ'; pauseButton.setAttribute('aria-label', paused ? pauseButton.dataset.playLabel : pauseButton.dataset.pauseLabel); }
         carousel.querySelector('[data-prev]').addEventListener('click', () => { show(index - 1); start(); });
         carousel.querySelector('[data-next]').addEventListener('click', () => { show(index + 1); start(); });
@@ -25,6 +45,7 @@
         carousel.addEventListener('touchstart', event => { touchX = event.changedTouches[0].clientX; stop(); }, {passive:true});
         carousel.addEventListener('touchend', event => { const dx = event.changedTouches[0].clientX - touchX; if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1)); start(); }, {passive:true});
         document.addEventListener('visibilitychange', start);
+        carousel.closest('details')?.addEventListener('toggle', start);
         reduce.addEventListener('change', () => { paused = reduce.matches; label(); start(); });
         show(0); label(); start();
     });
