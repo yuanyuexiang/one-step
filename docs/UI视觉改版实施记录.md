@@ -43,4 +43,10 @@
 
 ## 发布状态
 
-本地验证完成，使用现有 GitHub Actions 流水线发布；发布结果待下方补记。
+应用提交：`33da1aa93e8f8f0ddba7ea0d775d0d2af9d0713e`。
+
+[GitHub Actions 发布记录](https://github.com/yuanyuexiang/one-step/actions/runs/43555686379) 的检查、两个镜像构建、生产备份发布与公网验证全部成功。
+
+生产七语首页已逐一以 HTTPS 检查，新版首页、每语言八款精选、原标识和开放收录状态正常；英文印刷产品资料与咨询区域、厨房设备分类和新版 CSS 资源正常返回。生产验证只读，不提交测试询盘。
+
+访问：[中文首页](https://ai-onestep.com/zh-hans/)／[英文首页](https://ai-onestep.com/en/)。
