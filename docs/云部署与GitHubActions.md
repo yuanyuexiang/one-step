@@ -101,3 +101,19 @@ GitHub Linux runner 会保留文件挂载的宿主机权限。原密码文件为
 根域名 A 记录现指向 `18.175.156.130`。检查发现，原 SSH 使用 `bash -s` 从 stdin 读取发布命令，而 Docker 命令也会读取 stdin，导致导入后剩余步骤被吞掉、远端却返回成功。工作流改为先完整读取远程命令再执行，避免共享 stdin；HTTPS 首次校验增加有界重试，覆盖证书 DNS 验证等待时间。
 
 2026-11-13 首次发布已恢复完成：服务器 DNS 解析到 `18.175.156.130`，Traefik 完成根域名证书签发，七种语言入口均通过服务器端 HTTPS 校验；WordPress、MySQL、scheduler 已启动，两个应用镜像与发布 digest 一致，成功版本为 `0e774f4aa269368930f1a7114e62dd6cf9d6c42d`。核对 115 个已发布产品后完成恢复，未重复导入；原 pending 移至 `state/recovered-first-deploy` 留档，`state/current` 记录成功版本。本次未修改 Beacon 或重建 Traefik。原 GitHub 失败记录不会因手工恢复变绿；stdin 修复及首次 HTTPS 等待配置仍需提交推送，才能验证后续完整自动发布。
+
+## www 域名入口（2026-11-26）
+
+生产 Compose 增加独立 `onestep-www` 路由，使用现有 `websecure` 与 `route53` 证书解析器。`https://www.ai-onestep.com/路径?参数` 永久跳转到对应的 `https://ai-onestep.com/路径?参数`，WordPress 主地址保持根域名；不改 Beacon 或共享 Traefik 的部署文件。
+
+DNS 必须在 Route 53 的公开区域 `ai-onestep.com` 中添加：
+
+| 名称 | 类型 | 值 | TTL |
+|---|---|---|---|
+| www | CNAME | ai-onestep.com | 300 |
+
+如已有同名记录，先核实用途，避免覆盖不相关配置。证书由 Traefik 通过 DNS 验证自动签发；只改 DNS 并不能替代反向代理路由和 HTTPS 证书。
+
+验证：`python3 ops/deploy/validate.py` 检查 www 路由、证书解析器及 Compose 转义后的跳转捕获组。上线后分别验证 TLS 和永久跳转（本次实际为 308），并核对路径与查询参数保留。DNS 未配置时可使用 `curl --resolve www.ai-onestep.com:443:18.175.156.130 -I 'https://www.ai-onestep.com/en/?source=www'` 检查服务器入口；这不等于公共 DNS 已生效。
+
+发布应用提交 `4e0b67498325adb38b884695f4169336db258ea8`， [Actions](https://github.com/yuanyuexiang/one-step/actions/runs/45820930262) 全部成功。用户确认 CNAME 已创建；本机和服务器分别以正常证书校验请求 www，均返回 308，`/en/?source=www` 完整保留路径及参数，跳转至主域名。Traefik 已签发 www 证书。
