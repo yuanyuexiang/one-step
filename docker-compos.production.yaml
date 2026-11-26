@@ -81,6 +81,15 @@ services:
       traefik.http.routers.onestep.service: onestep
       traefik.http.services.onestep.loadbalancer.server.port: '80'
       traefik.http.routers.onestep.tls.certresolver: route53
+      traefik.http.routers.onestep-www.rule: Host(`www.${SITE_HOST:?Set SITE_HOST}`)
+      traefik.http.routers.onestep-www.entrypoints: websecure
+      traefik.http.routers.onestep-www.tls: 'true'
+      traefik.http.routers.onestep-www.tls.certresolver: route53
+      traefik.http.routers.onestep-www.service: onestep
+      traefik.http.routers.onestep-www.middlewares: onestep-canonical
+      traefik.http.middlewares.onestep-canonical.redirectregex.regex: '^https?://www\.([^/]+)(/.*)?$$'
+      traefik.http.middlewares.onestep-canonical.redirectregex.replacement: 'https://$${1}$${2}'
+      traefik.http.middlewares.onestep-canonical.redirectregex.permanent: 'true'
     healthcheck:
       test:
       - CMD
