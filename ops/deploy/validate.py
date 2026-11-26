@@ -31,6 +31,6 @@ with tempfile.TemporaryDirectory() as tmp:
     assert labels['traefik.http.routers.onestep.tls.certresolver'] == 'route53'
     assert labels['traefik.http.routers.onestep-www.rule'] == 'Host(`www.ai-onestep.com`)'
     assert labels['traefik.http.routers.onestep-www.tls.certresolver'] == 'route53'
-    assert labels['traefik.http.middlewares.onestep-canonical.redirectregex.replacement'] == 'https://${1}${2}'
+    assert labels['traefik.http.middlewares.onestep-canonical.redirectregex.replacement'] == 'https://$${1}$${2}'
     assert all(v['name'].startswith('onestep-') for v in model['volumes'].values())
 print('Production Compose isolation, routing, and image-only deployment verified.')
