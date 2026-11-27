@@ -57,6 +57,7 @@ jobs:
           docker compose cp tests/migration-state.php scheduler:/tmp/migration-state.php
           docker compose exec -T scheduler wp eval-file /tmp/migration-state.php
           python3 tests/complete-site-smoke.py
+          python3 tests/browser-language-smoke.py
           docker compose cp tests/image-variants.php scheduler:/tmp/image-variants.php
           docker compose exec -T -e ONESTEP_CI=1 scheduler wp eval-file /tmp/image-variants.php
       - name: Stop CI stack

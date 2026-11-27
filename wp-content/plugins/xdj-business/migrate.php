@@ -2,6 +2,11 @@
 // Run explicitly through WP-CLI; never import content during a visitor request.
 if (!defined('WP_CLI') || !WP_CLI) exit;
 if (!function_exists('pll_get_post')) WP_CLI::error('Activate Polylang before completing content migration.');
+// Deployment settings apply even when the catalogue migration is already current.
+if (!PLL()->options['browser']) {
+    PLL()->options->set('browser', true);
+    PLL()->options->save_all();
+}
 $data=xdj_source_data();$version=$data['revision'].'-5';
 if (get_option('xdj_complete_revision')===$version) { WP_CLI::success('Content migration already current.'); return; }
 $langs=['zh-hans','zh-hant','en','fr','de','it','es'];
