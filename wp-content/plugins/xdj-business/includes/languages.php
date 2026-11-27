@@ -40,3 +40,32 @@ add_filter('do_shortcode_tag',function($output,$tag){
     if($tag!=='xdj_inquiry_form'||xdj_lang()!=='zh-hant')return $output;
     return strtr($output,['你的称呼'=>'你的稱呼','门店所在国家'=>'門店所在國家','请选择'=>'請選擇','电子邮箱'=>'電子信箱','联系电话'=>'聯絡電話','邮箱与电话至少填写一项。'=>'信箱與電話至少填寫一項。','感兴趣的服务'=>'感興趣的服務','菜单设计与印刷'=>'菜單設計與印刷','点餐与收银'=>'點餐與收銀','门店与后厨设备'=>'門店與後廚設備','其他咨询'=>'其他諮詢','说说你的需求'=>'說說你的需求','例如：门店所在城市、需要的产品、数量和期望安排。'=>'例如：門店所在城市、需要的產品、數量和期望安排。','我同意将以上信息用于处理本次咨询及联系跟进。'=>'我同意將以上資訊用於處理本次諮詢及聯絡跟進。','提交需求'=>'提交需求','英国'=>'英國','法国'=>'法國','德国'=>'德國','意大利'=>'義大利','中国'=>'中國','其他国家'=>'其他國家']);
 },11,2);
+
+// Polylang's locale matcher does not map Chinese script/Hong Kong hints to zh_TW.
+add_filter('pll_preferred_language', function ($slug, $from_cookie) {
+    if ($from_cookie || !PLL()->options['browser']) return $slug;
+    $preferences = [];
+    foreach (explode(',', substr($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '', 0, 2048)) as $order => $entry) {
+        $parts = explode(';', trim($entry));
+        $tag = strtolower(trim($parts[0]));
+        if (!preg_match('/^[a-z]{2,8}(?:-[a-z0-9]{1,8})*$/', $tag)) continue;
+        $quality = 1.0;
+        foreach (array_slice($parts, 1) as $parameter) {
+            if (preg_match('/^q\s*=\s*(0(?:\.\d{0,3})?|1(?:\.0{0,3})?)$/i', trim($parameter), $match)) {
+                $quality = (float)$match[1];
+            }
+        }
+        if ($quality > 0) $preferences[] = compact('tag', 'quality', 'order');
+    }
+    usort($preferences, fn($a, $b) => ($b['quality'] <=> $a['quality']) ?: ($a['order'] <=> $b['order']));
+    foreach ($preferences as $preference) {
+        $tag = $preference['tag'];
+        $primary = explode('-', $tag)[0];
+        if (in_array($primary, ['en','fr','de','it','es'], true)) return $slug;
+        if ($primary !== 'zh') continue;
+        if (preg_match('/(?:^|-)hant(?:-|$)/', $tag)) return 'zh-hant';
+        if (preg_match('/(?:^|-)hans(?:-|$)/', $tag)) return 'zh-hans';
+        return preg_match('/(?:^|-)(tw|hk|mo)(?:-|$)/', $tag) ? 'zh-hant' : 'zh-hans';
+    }
+    return $slug;
+}, 10, 2);
