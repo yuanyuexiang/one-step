@@ -2,7 +2,9 @@
 if (!defined('ABSPATH')) exit;
 function xdj_client_address() {
     $remote=$_SERVER['REMOTE_ADDR']??'unknown';
-    $proxy=gethostbyname('traefik');
+    // Bulk imports and audit hooks share a request; resolve the trusted proxy once.
+    static $proxy = null;
+    if ($proxy === null) $proxy = gethostbyname('traefik');
     if($proxy!=='traefik'&&hash_equals($proxy,$remote)){
         $real=$_SERVER['HTTP_X_REAL_IP']??'';
         if(filter_var($real,FILTER_VALIDATE_IP))return $real;
