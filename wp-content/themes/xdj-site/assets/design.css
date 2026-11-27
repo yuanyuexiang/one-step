@@ -288,3 +288,23 @@ footer a:not(.brand) { overflow-wrap: anywhere; }
     .nav-dropdown > div a { font-size: 14px; }
     .mobile-contact { display: block; color: var(--red); }
 }
+/* Language links use an anchored disclosure rather than the OS select popup. */
+header .language-switcher { position: relative; display: block; flex-shrink: 0; padding-left: 0; border-left: 0; z-index: 40; }
+.language-switcher > summary { display: flex; align-items: center; gap: 9px; min-height: 44px; width: 148px; padding: 10px 12px; list-style: none; cursor: pointer; background: #fff; border: 1px solid var(--line); border-radius: 4px; font-size: 14px; color: var(--ink); }
+.language-switcher > summary::-webkit-details-marker { display: none; }
+.language-switcher > summary::marker { content: ''; }
+.language-switcher > summary > svg { flex-shrink: 0; }
+.language-switcher .language-chevron { margin-left: auto; transition: transform 180ms ease; }
+.language-switcher[open] .language-chevron { transform: rotate(180deg); }
+.language-switcher > summary:hover, .language-switcher[open] > summary { border-color: #b29b82; background: #fffdf8; }
+.language-options { position: absolute; top: calc(100% + 8px); right: 0; width: 196px; max-width: calc(100vw - 36px); max-height: min(420px,60vh); overflow-y: auto; list-style: none; margin: 0; padding: 7px; background: #fffdf8; border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 12px 32px #38251c1a; }
+.language-options li { margin: 0; padding: 0; }
+.language-options a { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; padding: 9px 12px; font-size: 14px; line-height: 1.5; border-radius: 3px; color: var(--ink); }
+.language-options a:hover { background: #f1ede5; }
+.language-options a[aria-current=page] { color: #a4221c; font-weight: 600; background: #f8ece6; }
+@media(max-width:600px) {
+    .language-switcher > summary { width: 118px; gap: 7px; padding: 9px 10px; font-size: 13px; }
+    .language-switcher > summary > svg:first-child { display: none; }
+    .language-options { width: 190px; right: 0; }
+}
+@media(prefers-reduced-motion:reduce) { .language-switcher .language-chevron { transition: none; } }

@@ -8,6 +8,17 @@
 <li><details class="nav-dropdown"><summary><?php echo esc_html($w[3]); ?></summary><div><a href="<?php echo esc_url(xdj_page_url('about')); ?>"><?php echo esc_html($w[3]); ?></a><a href="<?php echo esc_url(xdj_page_url('markets')); ?>"><?php echo esc_html($w[2]); ?></a><a href="<?php echo esc_url(xdj_content_url('activities')); ?>"><?php echo esc_html(xdj_t('activities')); ?></a><a href="<?php echo esc_url(xdj_video_page_url()); ?>"><?php echo esc_html(['zh-hans'=>'视频资料','zh-hant'=>'影片資料','en'=>'Videos','fr'=>'Vidéos','de'=>'Videos','it'=>'Video','es'=>'Vídeos'][xdj_lang()]); ?></a></div></details></li>
 <li><a href="<?php echo esc_url(xdj_content_url('support')); ?>"><?php echo esc_html(xdj_t('support')); ?></a></li>
 <li class="mobile-contact"><a href="<?php echo esc_url(xdj_page_url('contact')); ?>"><?php echo esc_html(xdj_t('contact')); ?> ↗</a></li></ul></nav><a class="button small" href="<?php echo esc_url(xdj_page_url('contact')); ?>"><?php echo esc_html($w[4]); ?> ↗</a>
-<div class="language-switcher"><label for="site-language">Language</label><select aria-label="Language" id="site-language" onchange="if(this.value) location.href=this.value"><?php if(function_exists('pll_the_languages'))foreach(pll_the_languages(['raw'=>1,'hide_if_empty'=>0]) as $l):if(!in_array($l['slug'],['zh-hans','zh-hant','en','fr','de','it','es'],true))continue;?><option value="<?php echo esc_url($l['url']); ?>" <?php selected($l['current_lang']); ?>><?php echo esc_html($l['name']); ?></option><?php endforeach;?></select></div>
+<?php
+$languages = function_exists('pll_the_languages') ? pll_the_languages(['raw'=>1,'hide_if_empty'=>0]) : [];
+$languages = array_filter($languages ?: [], fn($language) => in_array($language['slug'], ['zh-hans','zh-hant','en','fr','de','it','es'], true));
+$current_language = 'Language';
+foreach ($languages as $language) if ($language['current_lang']) $current_language = $language['name'];
+?>
+<details class="language-switcher" id="site-language">
+    <summary aria-label="<?php echo esc_attr('Language: '.$current_language); ?>"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 7h14M5 17h14"/></svg><span><?php echo esc_html($current_language); ?></span><svg class="language-chevron" aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 6 4 4 4-4"/></svg></summary>
+    <ul class="language-options" aria-label="Language"><?php foreach ($languages as $language): ?>
+        <li><a href="<?php echo esc_url($language['url']); ?>" lang="<?php echo esc_attr(str_replace('_','-',$language['locale'])); ?>" hreflang="<?php echo esc_attr(str_replace('_','-',$language['locale'])); ?>" <?php if ($language['current_lang']) echo 'aria-current="page"'; ?>><span><?php echo esc_html($language['name']); ?></span><?php if ($language['current_lang']): ?><span aria-hidden="true">✓</span><?php endif; ?></a></li>
+    <?php endforeach; ?></ul>
+</details>
 <details class="header-search"><summary aria-label="<?php echo esc_attr(xdj_t('search')); ?>">⌕</summary><form role="search" method="get" action="<?php echo esc_url(function_exists('pll_home_url')?pll_home_url(xdj_lang()):home_url('/')); ?>"><label for="header-query"><?php echo esc_html(xdj_t('search_hint')); ?></label><div><input id="header-query" name="s" type="search" required maxlength="100" value="<?php echo esc_attr(get_search_query()); ?>"><button type="submit"><?php echo esc_html(xdj_t('search')); ?></button></div></form></details>
 </header>

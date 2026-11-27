@@ -1,10 +1,13 @@
-import urllib.request,re,json
-base='http://localhost:8080'
+import urllib.request,re,json,os
+base=os.environ.get('SITE_TEST_URL','http://localhost:8080').rstrip('/')
 for lang in ['zh-hans','zh-hant','en','fr','de','it','es']:
  with urllib.request.urlopen(base+'/'+lang+'/',timeout=15) as r:
   body=r.read().decode();assert r.status==200 and 'site-language' in body,(lang,r.status)
-  switcher=re.search(r'<select[^>]*id="site-language"[^>]*>(.*?)</select>',body,re.S)
-  assert switcher and switcher.group(1).count('<option ')==7,(lang,'language options')
+  switcher=re.search(r'<details[^>]*id="site-language"[^>]*>(.*?)</details>',body,re.S)
+  assert switcher and switcher.group(1).count('hreflang=')==7,(lang,'language options')
+  language_links=re.findall(r'<a\b([^>]+)>',switcher.group(1))
+  assert len(language_links)==7 and sum('aria-current="page"' in a for a in language_links)==1,(lang,'language links')
+  assert all('href="'+base+'/' in a for a in language_links),(lang,'language URL')
   links=re.findall(r'href="([^"]+)"',body)
   service=next(x for x in links if '/services' in x)
  with urllib.request.urlopen(service,timeout=15) as r:assert r.status==200
@@ -19,7 +22,7 @@ for lang in ['zh-hans','zh-hant','en','fr','de','it','es']:
 records=json.load(open('migration/import-report.json'))
 products=[r for r in records if r.get('state')=='local-preview-review']
 for r in products:
- with urllib.request.urlopen(r['target'],timeout=15) as response:assert response.status==200,r
+ with urllib.request.urlopen(r['target'].replace('http://localhost:8080',base),timeout=15) as response:assert response.status==200,r
 print('product pages OK',len(products))
 
 # German catalogue must now contain localized products rather than a fallback-only page.

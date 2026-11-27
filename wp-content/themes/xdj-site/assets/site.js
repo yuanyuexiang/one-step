@@ -121,6 +121,11 @@
         } catch {box.textContent=assistant.querySelector('p').textContent;} finally {button.disabled=false;}
     });
     document.querySelectorAll('.nav-dropdown').forEach(detail => detail.addEventListener('toggle', () => {if(detail.open)document.querySelectorAll('.nav-dropdown').forEach(other => {if(other!==detail)other.open=false;});}));
-    document.addEventListener('click', event => {document.querySelectorAll('details.nav-dropdown[open],details.header-search[open]').forEach(detail => {if(!detail.contains(event.target))detail.open=false;});});
-    document.addEventListener('keydown', event => {if(event.key==='Escape')document.querySelectorAll('details[open]').forEach(detail=>detail.open=false);});
+    document.addEventListener('click', event => {document.querySelectorAll('details.nav-dropdown[open],details.header-search[open],details.language-switcher[open]').forEach(detail => {if(!detail.contains(event.target))detail.open=false;});});
+    document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        const language = document.querySelector('details.language-switcher[open]');
+        if (language?.contains(document.activeElement)) language.querySelector('summary').focus();
+        document.querySelectorAll('details[open]').forEach(detail => detail.open = false);
+    });
 })();
