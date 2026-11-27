@@ -70,3 +70,5 @@
 本地使用 8081 预览，全部语言协商测试及 PHP 语法检查通过。已有 Cookie 的访客仍会使用记住的语言；要观察首次访问效果，使用无痕窗口或清除本站语言 Cookie。手动切换仅影响本站偏好，不更改浏览器自身语言。
 
 补充繁体浏览器兼容：`zh-Hant`、`zh-TW`、`zh-HK`、`zh-MO` 匹配繁体，`zh-Hans`、`zh-CN`、`zh-SG` 匹配简体；遵守语言权重和 `q=0` 排除，不覆盖已存在的语言 Cookie。对应组合已纳入本地及 CI 测试。
+
+语言检测最终应用版本 `fe7175c2b86d12ba98e816028f6c16ecf007e7b2` 已通过 [GitHub Actions](https://github.com/yuanyuexiang/one-step/actions/runs/45932081427) 检查、构建、备份与发布。上线后使用 `SITE_TEST_URL=https://ai-onestep.com python3 tests/browser-language-smoke.py` 只读复验，全部浏览器语言、简繁体别名、权重、Cookie 和指定语言路径检查通过。
