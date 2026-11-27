@@ -1,0 +1,83 @@
+/* One Step operations. Scope administrative styles; preserve native editors and notices. */
+.xdj-admin { --xdj-red:#a9231d; --xdj-ink:#28251f; --xdj-muted:#68635b; --xdj-line:#e1dcd3; background:#f6f4ef; color:var(--xdj-ink); }
+.xdj-admin #adminmenuback,.xdj-admin #adminmenuwrap,.xdj-admin #adminmenu { background:#242621; }
+.xdj-admin #adminmenu { padding-top:12px; }
+.xdj-admin #adminmenu a { font-size:14px; }
+.xdj-admin #adminmenu li.menu-top { margin-bottom:3px; }
+.xdj-admin #adminmenu .wp-submenu { background:#30332c; }
+.xdj-admin #adminmenu .wp-has-current-submenu > a,.xdj-admin #adminmenu li.current > a.menu-top { background:var(--xdj-red)!important; color:#fff!important; }
+.xdj-admin #adminmenu a:hover,.xdj-admin #adminmenu a:focus { color:#f3ce92; }
+.xdj-admin #adminmenu .wp-submenu a { color:#e2dfd7; }
+.xdj-admin #adminmenu div.wp-menu-image::before { color:#bbbdb3; }
+.xdj-admin #wpadminbar { background:#242621; }
+.xdj-admin #wpcontent { padding-left:28px; }
+.xdj-admin .wrap { margin-right:28px; }
+.xdj-admin .wrap > h1 { font-size:27px; font-weight:600; margin:22px 0 20px; }
+.xdj-admin .widefat,.xdj-admin .postbox,.xdj-admin #poststuff .postbox { border:1px solid var(--xdj-line); border-radius:7px; box-shadow:none; }
+.xdj-admin .widefat { border-collapse:separate; border-spacing:0; }
+.xdj-admin .widefat thead td,.xdj-admin .widefat thead th { background:#efede7; border-bottom-color:var(--xdj-line); padding-block:13px; }
+.xdj-admin .widefat td { padding-block:13px; vertical-align:top; }
+.xdj-admin .striped > tbody > :nth-child(odd) { background:#faf9f5; }
+.xdj-admin .tablenav { margin-block:14px; }
+.xdj-admin input:not([type=checkbox]):not([type=radio]),.xdj-admin select,.xdj-admin textarea { border-color:#afa99e; border-radius:4px; }
+.xdj-admin .button,.xdj-admin .button-secondary { color:#383b34; border-color:#aaa89e; background:#fff; border-radius:4px; }
+.xdj-admin .button-primary { background:var(--xdj-red); border-color:var(--xdj-red); color:#fff; box-shadow:none; text-shadow:none; }
+.xdj-admin .button-primary:hover,.xdj-admin .button-primary:focus { background:#861b17; border-color:#861b17; color:#fff; }
+.xdj-admin a { color:#8b2921; }
+.xdj-admin a:hover { color:#641b16; }
+.xdj-admin .notice { border-radius:4px; }
+.xdj-admin #dashboard-widgets .postbox-container { width:100%; }
+.xdj-admin #xdj_operations { border:0; background:transparent; }
+.xdj-admin #xdj_operations > .postbox-header { display:none; }
+.xdj-admin #xdj_operations > .inside { padding:0; margin:0; }
+.xdj-workbench { font-size:14px; line-height:1.65; }
+.xdj-workbench h2,.xdj-workbench h3,.xdj-workbench p { margin:0; }
+.xdj-welcome { display:flex; align-items:center; justify-content:space-between; gap:24px; background:#eee8dd; padding:32px; border:1px solid var(--xdj-line); border-radius:8px; margin-bottom:24px; }
+.xdj-overline { color:#775944; font-size:11px; letter-spacing:.12em; }
+.xdj-workbench .xdj-welcome h2 { font-size:30px; line-height:1.4; font-weight:650; padding:10px 0; }
+.xdj-workbench .xdj-welcome p { color:var(--xdj-muted); font-size:15px; }
+.xdj-welcome .button { padding:7px 18px; white-space:nowrap; }
+.xdj-metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-bottom:30px; }
+.xdj-metrics a { display:flex; flex-direction:column; gap:8px; padding:22px 24px; background:#fff; border:1px solid var(--xdj-line); border-radius:7px; text-decoration:none; color:var(--xdj-ink); }
+.xdj-metrics a:hover { border-color:#b6a58d; }
+.xdj-metrics strong { font-size:34px; line-height:1.2; font-weight:650; font-variant-numeric:tabular-nums; }
+.xdj-metrics small { color:var(--xdj-muted); font-size:12px; }
+.xdj-workbench .xdj-section-title { font-size:18px; padding:0; margin-bottom:16px; }
+.xdj-shortcuts { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-bottom:28px; }
+.xdj-shortcut { display:grid; grid-template-columns:32px 1fr 16px; gap:4px 10px; padding:22px; border:1px solid var(--xdj-line); border-radius:7px; background:#fff; text-decoration:none; color:var(--xdj-ink)!important; }
+.xdj-shortcut .dashicons { grid-row:1/3; color:var(--xdj-red); font-size:24px; width:28px; height:28px; margin-top:3px; }
+.xdj-shortcut strong { font-size:15px; }
+.xdj-shortcut > span:not(.dashicons) { grid-column:2; font-size:12px; color:var(--xdj-muted); }
+.xdj-shortcut b { grid-column:3; grid-row:1; font-weight:400; color:var(--xdj-red); }
+.xdj-shortcut:hover { border-color:#b6a58d; background:#fdfbf6; }
+.xdj-panel-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.xdj-panel { background:#fff; border:1px solid var(--xdj-line); border-radius:7px; padding:24px; margin-bottom:22px; }
+.xdj-workbench .xdj-panel h3 { font-size:17px; padding:0; font-weight:600; }
+.xdj-panel-heading { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:14px; }
+.xdj-panel-heading > span,.xdj-panel-heading > a { color:var(--xdj-muted); font-size:12px; }
+.xdj-panel p { color:var(--xdj-muted); font-size:13px; line-height:1.8; }
+.xdj-language-status,.xdj-recent { margin:16px 0 0; }
+.xdj-language-status li,.xdj-recent li { display:flex; justify-content:space-between; align-items:center; gap:15px; border-top:1px solid #eeeae2; padding:10px 0; margin:0; }
+.xdj-language-status a { text-decoration:none; color:var(--xdj-ink); }
+.xdj-language-status span { font-variant-numeric:tabular-nums; color:var(--xdj-muted); }
+.xdj-recent small { display:block; color:var(--xdj-muted); font-size:11px; margin-top:4px; }
+.xdj-recent li > span { border-radius:4px; padding:3px 8px; font-size:12px; background:#f2ece1; color:#705338; white-space:nowrap; }
+.xdj-recent + p { margin-top:16px; }
+.xdj-empty { padding:35px 0; }
+.xdj-service-panel { display:flex; justify-content:space-between; gap:24px; }
+.xdj-service-panel h3 { margin-bottom:12px!important; }
+.xdj-maintenance-links { display:flex; flex-direction:column; justify-content:center; gap:10px; flex-shrink:0; }
+.xdj-maintenance-links a { text-decoration:none; }
+/* Login is branded without changing authentication, notices, or password controls. */
+body.login { background:#f5f2eb; color:#28251f; }
+.login #login { width:360px; padding-top:7vh; }
+.login h1 a { background-image:url('admin-logo.png'); background-size:contain; width:135px; height:82px; margin-bottom:30px; }
+.login form { border:1px solid #ded7ca; border-radius:8px; padding:28px; box-shadow:0 8px 30px #3329190a; }
+.login input[type=text],.login input[type=password] { border-color:#b1a799; border-radius:4px; }
+.login .button-primary { background:#a9231d; border-color:#a9231d; box-shadow:none; text-shadow:none; padding:3px 18px; }
+.login .button-primary:hover { background:#861b17; border-color:#861b17; }
+.login #backtoblog a,.login #nav a { color:#5e564a; }
+.login .message,.login .notice { border-left-color:#a9231d; }
+@media(max-width:1200px) { .xdj-metrics,.xdj-shortcuts { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:782px) { .xdj-admin #wpcontent { padding-left:12px; } .xdj-admin .wrap { margin-right:12px; } .xdj-welcome { padding:22px; flex-direction:column; align-items:flex-start; } .xdj-workbench .xdj-welcome h2 { font-size:25px; } .xdj-panel-grid { grid-template-columns:1fr; gap:0; } .xdj-service-panel { flex-direction:column; } .xdj-shortcut { padding:16px; } }
+@media(max-width:480px) { .xdj-metrics,.xdj-shortcuts { grid-template-columns:1fr; gap:12px; } .xdj-panel { padding:18px; } .login #login { width:auto; margin-inline:20px; } }

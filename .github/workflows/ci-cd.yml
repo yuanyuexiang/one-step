@@ -56,6 +56,8 @@ jobs:
           docker compose exec -T scheduler wp eval-file /var/www/html/wp-content/plugins/xdj-business/migrate.php
           docker compose cp tests/migration-state.php scheduler:/tmp/migration-state.php
           docker compose exec -T scheduler wp eval-file /tmp/migration-state.php
+          docker compose cp tests/admin-workbench.php scheduler:/tmp/admin-workbench.php
+          docker compose exec -T scheduler wp eval-file /tmp/admin-workbench.php
           python3 tests/complete-site-smoke.py
           python3 tests/browser-language-smoke.py
           docker compose cp tests/image-variants.php scheduler:/tmp/image-variants.php
