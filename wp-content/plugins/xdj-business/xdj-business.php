@@ -46,3 +46,5 @@ require_once __DIR__ . '/includes/discovery.php';
 require_once __DIR__ . '/includes/performance.php';
 
 require_once __DIR__ . '/includes/admin.php';
+
+require_once __DIR__ . '/includes/security.php';
