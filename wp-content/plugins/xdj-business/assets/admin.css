@@ -26,7 +26,9 @@
 .xdj-admin a { color:#8b2921; }
 .xdj-admin a:hover { color:#641b16; }
 .xdj-admin .notice { border-radius:4px; }
-.xdj-admin #dashboard-widgets .postbox-container { width:100%; }
+.xdj-admin #wpbody-content #dashboard-widgets .postbox-container { width:100%!important; float:none!important; }
+.xdj-admin #dashboard-widgets .empty-container { display:none; }
+.xdj-admin.is-dragging-metaboxes #dashboard-widgets .empty-container { display:block; }
 .xdj-admin #xdj_operations { border:0; background:transparent; }
 .xdj-admin #xdj_operations > .postbox-header { display:none; }
 .xdj-admin #xdj_operations > .inside { padding:0; margin:0; }

@@ -18,6 +18,10 @@ add_action('init', function () {
         $object->label = $name;
         $object->menu_icon = $icon;
     }
+    $taxonomy = get_taxonomy('product_category');
+    if ($taxonomy) {
+        foreach (['name'=>'产品分类','singular_name'=>'产品分类','menu_name'=>'产品分类','all_items'=>'全部分类','edit_item'=>'编辑分类','add_new_item'=>'新增分类','search_items'=>'搜索分类'] as $key=>$value) $taxonomy->labels->$key = $value;
+    }
 }, 99);
 
 add_action('admin_menu', function () {
@@ -66,6 +70,8 @@ function xdj_workbench_count($type, $status = 'publish', $language = '') {
 }
 
 add_action('wp_dashboard_setup', function () {
+    global $title;
+    $title = '小当家运营工作台';
     remove_action('welcome_panel', 'wp_welcome_panel');
     foreach (['dashboard_quick_press','dashboard_primary','dashboard_right_now'] as $widget) {
         remove_meta_box($widget, 'dashboard', 'normal');
